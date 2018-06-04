@@ -34,8 +34,7 @@ class TimelineViewController: UITableViewController {
         let refreshStartAction = TimelineState.TimelineRefreshAction(isRefresh: true, pageNumber: 1)
         store.dispatch(refreshStartAction)
 
-        let urlRequest = URLRequest(url: URL(string: "https://qiita.com/api/v2/items")!)
-        let actionCreator = APIActionCreator.send(urlRequest: urlRequest) { (articles) in
+        let actionCreator = APIActionCreator.send(request: TimelineArticlesRequest(page: timelineState.pageNumber, perPage: 20)) { (articles) in
             let pageNumber = self.timelineState.pageNumber
             let refreshEndAction = TimelineState.TimelineRefreshAction(isRefresh: false, pageNumber: pageNumber)
             store.dispatch(refreshEndAction)

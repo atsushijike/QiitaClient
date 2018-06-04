@@ -9,5 +9,17 @@
 import Foundation
 
 protocol Request {
-    
+    var baseURL: URL { get }
+    var version: String { get }
+    var path: String { get }
+    var method: HTTPMethod { get }
+    var parameters: [String: Any]? { get }
+    var headers: [String: String]? { get }
+}
+
+extension Request {
+    public var baseURL: URL { return  URL(string: "https://qiita.com")! }
+    public var version: String { return "/api/v2" }
+    public var headers: [String: String]? { return nil }
+    public var parameters: [String: Any]? { return nil }
 }

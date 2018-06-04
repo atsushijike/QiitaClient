@@ -20,7 +20,6 @@
 		6BB53B08207C8F33006BC385 /* TimelineReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B07207C8F33006BC385 /* TimelineReducer.swift */; };
 		6BB53B0A207C8F9C006BC385 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B09207C8F9C006BC385 /* AppState.swift */; };
 		6BB53B11207CABDF006BC385 /* TimelineArticlesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B10207CABDF006BC385 /* TimelineArticlesRequest.swift */; };
-		6BB53B13207CAC20006BC385 /* Articles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B12207CAC20006BC385 /* Articles.swift */; };
 		6BB53B15207CAFDF006BC385 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B14207CAFDF006BC385 /* Request.swift */; };
 		6BC71CB420C11699009633B9 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB53AFC207C8874006BC385 /* ReSwift.framework */; };
 		6BC71CB720C1169A009633B9 /* Unbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC71CB520C1169A009633B9 /* Unbox.framework */; };
@@ -65,7 +64,6 @@
 		6BB53B07207C8F33006BC385 /* TimelineReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineReducer.swift; sourceTree = "<group>"; };
 		6BB53B09207C8F9C006BC385 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		6BB53B10207CABDF006BC385 /* TimelineArticlesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineArticlesRequest.swift; sourceTree = "<group>"; };
-		6BB53B12207CAC20006BC385 /* Articles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Articles.swift; sourceTree = "<group>"; };
 		6BB53B14207CAFDF006BC385 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		6BC71CB520C1169A009633B9 /* Unbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Unbox.framework; path = Carthage/Build/iOS/Unbox.framework; sourceTree = "<group>"; };
 		6BC71CB620C1169A009633B9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -209,9 +207,9 @@
 		6BB53B01207C8AD1006BC385 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6BB53B14207CAFDF006BC385 /* Request.swift */,
 				6BB53B0F207CABBA006BC385 /* Endpoint */,
 				6BB53B02207C8AF7006BC385 /* Entity */,
-				6BB53B14207CAFDF006BC385 /* Request.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -220,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				6BB53B03207C8B04006BC385 /* Article.swift */,
-				6BB53B12207CAC20006BC385 /* Articles.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -388,7 +385,6 @@
 				6BB53B0A207C8F9C006BC385 /* AppState.swift in Sources */,
 				6B7AE6AD20C1376B00B2468C /* APIActionCreator.swift in Sources */,
 				6BB53AC6207C736F006BC385 /* AppDelegate.swift in Sources */,
-				6BB53B13207CAC20006BC385 /* Articles.swift in Sources */,
 				6BB53B06207C8D28006BC385 /* TimelineStateAction.swift in Sources */,
 				6BB53AF7207C838C006BC385 /* TimelineViewController.swift in Sources */,
 				6BB53B15207CAFDF006BC385 /* Request.swift in Sources */,
