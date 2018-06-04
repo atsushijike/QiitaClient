@@ -11,10 +11,17 @@ import ReSwift
 import Alamofire
 
 struct APIActionCreator {
-    static func send(urlRequest: URLRequest, responseHandler: @escaping () -> Void) -> Store<AppState>.ActionCreator {
+    // API client
+    static func send(urlRequest: URLRequest, responseHandler: @escaping ([Article]?) -> Void) -> Store<AppState>.ActionCreator {
         return { (state, store) in
-            Alamofire.request(urlRequest).responseJSON { (response) in
-                responseHandler()
+            Alamofire.request(urlRequest).response { (response) in
+                guard let data = response.data else {
+                    responseHandler(nil)
+                    return
+                }
+
+                let articles = try! JSONDecoder().decode(Array<Article>.self, from: data)
+                responseHandler(articles)
             }
             return nil
         }

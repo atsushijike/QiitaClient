@@ -14,7 +14,7 @@ private func defaultCellIdentifier<T: NSObject>(_ clazz: T.Type) -> String {
 }
 
 class TimelineViewController: UITableViewController {
-    let timelineState = store.state.timeline
+    var timelineState = store.state.timeline
 
     deinit {
         store.unsubscribe(self)
@@ -34,11 +34,15 @@ class TimelineViewController: UITableViewController {
         let refreshStartAction = TimelineState.TimelineRefreshAction(isRefresh: true, pageNumber: 1)
         store.dispatch(refreshStartAction)
 
-        let urlRequest = URLRequest(url: URL(string: "https://www.apple.com/")!)
-        let actionCreator = APIActionCreator.send(urlRequest: urlRequest) {
+        let urlRequest = URLRequest(url: URL(string: "https://qiita.com/api/v2/items")!)
+        let actionCreator = APIActionCreator.send(urlRequest: urlRequest) { (articles) in
             let pageNumber = self.timelineState.pageNumber
             let refreshEndAction = TimelineState.TimelineRefreshAction(isRefresh: false, pageNumber: pageNumber)
             store.dispatch(refreshEndAction)
+            if let articles = articles {
+                let resultAction = TimelineState.TimelineResultAction(articles: articles)
+                store.dispatch(resultAction)
+            }
         }
         store.dispatch(actionCreator)
     }
@@ -48,17 +52,21 @@ class TimelineViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return timelineState.articles?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath)
+        if let article = timelineState.articles?[indexPath.row] {
+            cell.textLabel?.text = article.title
+        }
         return cell
     }
 }
 
 extension TimelineViewController: StoreSubscriber {
     func newState(state: AppState) {
+         timelineState = state.timeline
         tableView.reloadData()
     }
 }

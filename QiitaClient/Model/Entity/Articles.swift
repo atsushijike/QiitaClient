@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Articles {
-    var articles: [Article]?
+struct Articles: Codable {
+    let articles: [Article]?
 }

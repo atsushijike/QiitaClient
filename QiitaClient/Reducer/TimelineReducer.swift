@@ -17,6 +17,8 @@ func TimelineReducer(action: Action, state: AppState?) -> AppState {
     case let action as TimelineState.TimelineRefreshAction:
         timelineState.updateIsRefresh(isRefresh: action.isRefresh)
         timelineState.updatePageNumber(pageNumber: action.pageNumber)
+    case let action as TimelineState.TimelineResultAction:
+        timelineState.updateArticles(articles: action.articles)
     default:
         break
     }

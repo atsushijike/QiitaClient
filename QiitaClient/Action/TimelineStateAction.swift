@@ -14,4 +14,8 @@ extension TimelineState {
         let isRefresh: Bool
         let pageNumber: Int
     }
+
+    struct TimelineResultAction: Action {
+        let articles: [Article]
+    }
 }
