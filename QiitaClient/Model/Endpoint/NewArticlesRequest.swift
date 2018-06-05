@@ -18,7 +18,7 @@ struct NewArticlesRequest: Request {
         ]
     }
     var headers: [String: String]? {
-        let accessToken = "3b00c0f97c79fb7a8c704c170ce518955822e470"
+        let accessToken = ""    // Enter Access token
         return ["Authorization": "Bearer \(accessToken)"]
     }
 

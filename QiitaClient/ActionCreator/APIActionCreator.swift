@@ -34,7 +34,9 @@ struct APIActionCreator {
                     return
                 }
 
-                let articles = try! JSONDecoder().decode(Array<Article>.self, from: data)
+                let jsonDecoder = JSONDecoder()
+                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                let articles = try! jsonDecoder.decode(Array<Article>.self, from: data)
                 responseHandler(articles)
             }
             return nil
