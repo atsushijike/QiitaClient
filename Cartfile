@@ -1,4 +1,4 @@
 github "ReSwift/ReSwift" ~> 4.0.1
-github "johnsundell/unbox" ~> 2.5.0
 github "Alamofire/Alamofire" ~> 4.7.1
+github "SnapKit/SnapKit"
 

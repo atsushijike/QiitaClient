@@ -17,10 +17,6 @@ struct NewArticlesRequest: Request {
             "per_page": perPage
         ]
     }
-    var headers: [String: String]? {
-        let accessToken = ""    // Enter Access token
-        return ["Authorization": "Bearer \(accessToken)"]
-    }
 
     private let page: Int
     private let perPage: Int

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B6A60B020C672C100D8E9A0 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A60AF20C672C100D8E9A0 /* AuthenticationViewController.swift */; };
+		6B6A60B220C674DB00D8E9A0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B6A60B120C674DA00D8E9A0 /* SnapKit.framework */; };
 		6B7AE6AD20C1376B00B2468C /* APIActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7AE6AC20C1376B00B2468C /* APIActionCreator.swift */; };
 		6BB53AC6207C736F006BC385 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53AC5207C736F006BC385 /* AppDelegate.swift */; };
 		6BB53ACF207C7371006BC385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BB53ACE207C7371006BC385 /* Assets.xcassets */; };
@@ -24,6 +26,13 @@
 		6BC71CB420C11699009633B9 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB53AFC207C8874006BC385 /* ReSwift.framework */; };
 		6BC71CB720C1169A009633B9 /* Unbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC71CB520C1169A009633B9 /* Unbox.framework */; };
 		6BC71CB820C1169A009633B9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC71CB620C1169A009633B9 /* Alamofire.framework */; };
+		6BD6CC2D20C67EEE00498859 /* AuthoriseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC2C20C67EEE00498859 /* AuthoriseRequest.swift */; };
+		6BD6CC2F20C6865500498859 /* AuthoriseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC2E20C6865500498859 /* AuthoriseResponse.swift */; };
+		6BD6CC3120C689F300498859 /* AccessTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC3020C689F300498859 /* AccessTokenRequest.swift */; };
+		6BD6CC3320C68B6B00498859 /* AuthenticationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC3220C68B6B00498859 /* AuthenticationState.swift */; };
+		6BD6CC3520C68BF400498859 /* AuthenticationStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC3420C68BF400498859 /* AuthenticationStateAction.swift */; };
+		6BD6CC3720C68C5000498859 /* AuthenticationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC3620C68C5000498859 /* AuthenticationReducer.swift */; };
+		6BD6CC3920C68E9B00498859 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC3820C68E9B00498859 /* Authentication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B6A60AF20C672C100D8E9A0 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		6B6A60B120C674DA00D8E9A0 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		6B7AE6AC20C1376B00B2468C /* APIActionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIActionCreator.swift; sourceTree = "<group>"; };
 		6BB53AC2207C736F006BC385 /* QiitaClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiitaClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB53AC5207C736F006BC385 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +78,13 @@
 		6BB53B14207CAFDF006BC385 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		6BC71CB520C1169A009633B9 /* Unbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Unbox.framework; path = Carthage/Build/iOS/Unbox.framework; sourceTree = "<group>"; };
 		6BC71CB620C1169A009633B9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		6BD6CC2C20C67EEE00498859 /* AuthoriseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthoriseRequest.swift; sourceTree = "<group>"; };
+		6BD6CC2E20C6865500498859 /* AuthoriseResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthoriseResponse.swift; path = QiitaClient/Model/AuthoriseResponse.swift; sourceTree = SOURCE_ROOT; };
+		6BD6CC3020C689F300498859 /* AccessTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenRequest.swift; sourceTree = "<group>"; };
+		6BD6CC3220C68B6B00498859 /* AuthenticationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationState.swift; sourceTree = "<group>"; };
+		6BD6CC3420C68BF400498859 /* AuthenticationStateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationStateAction.swift; sourceTree = "<group>"; };
+		6BD6CC3620C68C5000498859 /* AuthenticationReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationReducer.swift; sourceTree = "<group>"; };
+		6BD6CC3820C68E9B00498859 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B6A60B220C674DB00D8E9A0 /* SnapKit.framework in Frameworks */,
 				6BC71CB720C1169A009633B9 /* Unbox.framework in Frameworks */,
 				6BC71CB820C1169A009633B9 /* Alamofire.framework in Frameworks */,
 				6BC71CB420C11699009633B9 /* ReSwift.framework in Frameworks */,
@@ -165,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				6BB53AF6207C838C006BC385 /* NewArticlesViewController.swift */,
+				6B6A60AF20C672C100D8E9A0 /* AuthenticationViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -173,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				6BB53B05207C8D28006BC385 /* NewArticlesStateAction.swift */,
+				6BD6CC3420C68BF400498859 /* AuthenticationStateAction.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -181,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				6BB53B07207C8F33006BC385 /* NewArticlesReducer.swift */,
+				6BD6CC3620C68C5000498859 /* AuthenticationReducer.swift */,
 			);
 			path = Reducer;
 			sourceTree = "<group>";
@@ -190,6 +212,7 @@
 			children = (
 				6BB53B09207C8F9C006BC385 /* AppState.swift */,
 				6BB53AFF207C8A1E006BC385 /* NewArticlesState.swift */,
+				6BD6CC3220C68B6B00498859 /* AuthenticationState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -197,6 +220,7 @@
 		6BB53AFB207C8874006BC385 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6B6A60B120C674DA00D8E9A0 /* SnapKit.framework */,
 				6BC71CB620C1169A009633B9 /* Alamofire.framework */,
 				6BC71CB520C1169A009633B9 /* Unbox.framework */,
 				6BB53AFC207C8874006BC385 /* ReSwift.framework */,
@@ -208,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				6BB53B14207CAFDF006BC385 /* Request.swift */,
+				6BD6CC2E20C6865500498859 /* AuthoriseResponse.swift */,
 				6BB53B0F207CABBA006BC385 /* Endpoint */,
 				6BB53B02207C8AF7006BC385 /* Entity */,
 			);
@@ -218,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				6BB53B03207C8B04006BC385 /* Article.swift */,
+				6BD6CC3820C68E9B00498859 /* Authentication.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -226,6 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				6BB53B10207CABDF006BC385 /* NewArticlesRequest.swift */,
+				6BD6CC2C20C67EEE00498859 /* AuthoriseRequest.swift */,
+				6BD6CC3020C689F300498859 /* AccessTokenRequest.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -366,6 +394,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/ReSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Unbox.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 			);
 			outputPaths = (
 			);
@@ -381,15 +410,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BB53B04207C8B04006BC385 /* Article.swift in Sources */,
+				6B6A60B020C672C100D8E9A0 /* AuthenticationViewController.swift in Sources */,
 				6BB53B08207C8F33006BC385 /* NewArticlesReducer.swift in Sources */,
 				6BB53B0A207C8F9C006BC385 /* AppState.swift in Sources */,
 				6B7AE6AD20C1376B00B2468C /* APIActionCreator.swift in Sources */,
 				6BB53AC6207C736F006BC385 /* AppDelegate.swift in Sources */,
+				6BD6CC2D20C67EEE00498859 /* AuthoriseRequest.swift in Sources */,
 				6BB53B06207C8D28006BC385 /* NewArticlesStateAction.swift in Sources */,
 				6BB53AF7207C838C006BC385 /* NewArticlesViewController.swift in Sources */,
 				6BB53B15207CAFDF006BC385 /* Request.swift in Sources */,
+				6BD6CC3520C68BF400498859 /* AuthenticationStateAction.swift in Sources */,
+				6BD6CC3320C68B6B00498859 /* AuthenticationState.swift in Sources */,
 				6BB53B00207C8A1E006BC385 /* NewArticlesState.swift in Sources */,
+				6BD6CC2F20C6865500498859 /* AuthoriseResponse.swift in Sources */,
 				6BB53B11207CABDF006BC385 /* NewArticlesRequest.swift in Sources */,
+				6BD6CC3720C68C5000498859 /* AuthenticationReducer.swift in Sources */,
+				6BD6CC3120C689F300498859 /* AccessTokenRequest.swift in Sources */,
+				6BD6CC3920C68E9B00498859 /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

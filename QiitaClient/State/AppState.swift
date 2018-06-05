@@ -10,5 +10,6 @@ import Foundation
 import ReSwift
 
 struct AppState: StateType {
+    var authentication = AuthenticationState()
     var newArticles = NewArticlesState()
 }

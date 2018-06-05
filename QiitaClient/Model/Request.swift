@@ -20,6 +20,9 @@ protocol Request {
 extension Request {
     public var baseURL: URL { return  URL(string: "https://qiita.com")! }
     public var version: String { return "/api/v2" }
-    public var headers: [String: String]? { return nil }
     public var parameters: [String: Any]? { return nil }
+    public var headers: [String: String]? {
+        let accessToken = store.state.authentication.accessToken
+        return accessToken.isEmpty ? nil : ["Authorization": "Bearer \(accessToken)"]
+    }
 }

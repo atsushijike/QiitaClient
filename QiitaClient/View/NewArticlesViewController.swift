@@ -23,22 +23,38 @@ class NewArticlesViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = newArticlesState.title
-        tabBarItem.title = title
-        tabBarItem.image = #imageLiteral(resourceName: "first")
+        navigationController?.tabBarItem.title = title
+        navigationController?.tabBarItem.image = #imageLiteral(resourceName: "first")
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshBarButtonAction))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(loginBarButtonAction))
         tableView.register(NewArticlesTableViewCell.self, forCellReuseIdentifier: "default")
         store.subscribe(self)
         refreshData()
     }
 
-    func refreshData() {
+    @objc private func refreshBarButtonAction() {
+        refreshData()
+    }
+
+    @objc private func loginBarButtonAction() {
+        let authenticationViewController = AuthenticationViewController()
+        let nc = UINavigationController(rootViewController: authenticationViewController)
+        navigationController?.present(nc, animated: true, completion: nil)
+    }
+
+    private func refreshData() {
         let refreshStartAction = NewArticlesState.NewArticlesRefreshAction(isRefresh: true, pageNumber: 1)
         store.dispatch(refreshStartAction)
 
-        let actionCreator = APIActionCreator.send(request: NewArticlesRequest(page: newArticlesState.pageNumber, perPage: 20)) { (articles) in
+        let actionCreator = APIActionCreator.send(request: NewArticlesRequest(page: newArticlesState.pageNumber, perPage: 20)) { (data) in
             let pageNumber = self.newArticlesState.pageNumber
             let refreshEndAction = NewArticlesState.NewArticlesRefreshAction(isRefresh: false, pageNumber: pageNumber)
             store.dispatch(refreshEndAction)
-            if let articles = articles {
+
+            if data != nil {
+                let jsonDecoder = JSONDecoder()
+                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                let articles = try! jsonDecoder.decode(Array<Article>.self, from: data!)
                 let resultAction = NewArticlesState.NewArticlesResultAction(articles: articles)
                 store.dispatch(resultAction)
             }

@@ -21,7 +21,7 @@ struct APIActionCreator {
     }())
 
     // API client
-    static func send(request: Request, responseHandler: @escaping ([Article]?) -> Void) -> Store<AppState>.ActionCreator {
+    static func send(request: Request, responseHandler: @escaping (Data?) -> Void) -> Store<AppState>.ActionCreator {
         return { (state, store) in
             let url = request.baseURL.appendingPathComponent(request.version).appendingPathComponent(request.path)
             manager.request(url,
@@ -29,15 +29,7 @@ struct APIActionCreator {
                             parameters: request.parameters,
                             encoding: URLEncoding.default,
                             headers: request.headers).response { (response) in
-                guard let data = response.data else {
-                    responseHandler(nil)
-                    return
-                }
-
-                let jsonDecoder = JSONDecoder()
-                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                let articles = try! jsonDecoder.decode(Array<Article>.self, from: data)
-                responseHandler(articles)
+                responseHandler(response.data)
             }
             return nil
         }
