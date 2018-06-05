@@ -1,5 +1,5 @@
 //
-//  TimelineState.swift
+//  NewArticlesState.swift
 //  QiitaClient
 //
 //  Created by 寺家 篤史 on 2018/04/10.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct TimelineState {
-    var title: String = ""
+struct NewArticlesState {
+    var title: String = "New"
     var pageNumber: Int = 1
     var articles: [Article]?
     var errorString: String?

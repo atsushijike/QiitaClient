@@ -13,13 +13,13 @@
 		6BB53AD2207C7371006BC385 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB53AD0207C7371006BC385 /* LaunchScreen.storyboard */; };
 		6BB53ADD207C7372006BC385 /* QiitaClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53ADC207C7372006BC385 /* QiitaClientTests.swift */; };
 		6BB53AE8207C7372006BC385 /* QiitaClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53AE7207C7372006BC385 /* QiitaClientUITests.swift */; };
-		6BB53AF7207C838C006BC385 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53AF6207C838C006BC385 /* TimelineViewController.swift */; };
-		6BB53B00207C8A1E006BC385 /* TimelineState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53AFF207C8A1E006BC385 /* TimelineState.swift */; };
+		6BB53AF7207C838C006BC385 /* NewArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53AF6207C838C006BC385 /* NewArticlesViewController.swift */; };
+		6BB53B00207C8A1E006BC385 /* NewArticlesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53AFF207C8A1E006BC385 /* NewArticlesState.swift */; };
 		6BB53B04207C8B04006BC385 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B03207C8B04006BC385 /* Article.swift */; };
-		6BB53B06207C8D28006BC385 /* TimelineStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B05207C8D28006BC385 /* TimelineStateAction.swift */; };
-		6BB53B08207C8F33006BC385 /* TimelineReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B07207C8F33006BC385 /* TimelineReducer.swift */; };
+		6BB53B06207C8D28006BC385 /* NewArticlesStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B05207C8D28006BC385 /* NewArticlesStateAction.swift */; };
+		6BB53B08207C8F33006BC385 /* NewArticlesReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B07207C8F33006BC385 /* NewArticlesReducer.swift */; };
 		6BB53B0A207C8F9C006BC385 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B09207C8F9C006BC385 /* AppState.swift */; };
-		6BB53B11207CABDF006BC385 /* TimelineArticlesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B10207CABDF006BC385 /* TimelineArticlesRequest.swift */; };
+		6BB53B11207CABDF006BC385 /* NewArticlesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B10207CABDF006BC385 /* NewArticlesRequest.swift */; };
 		6BB53B15207CAFDF006BC385 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B14207CAFDF006BC385 /* Request.swift */; };
 		6BC71CB420C11699009633B9 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB53AFC207C8874006BC385 /* ReSwift.framework */; };
 		6BC71CB720C1169A009633B9 /* Unbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC71CB520C1169A009633B9 /* Unbox.framework */; };
@@ -56,14 +56,14 @@
 		6BB53AE3207C7372006BC385 /* QiitaClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QiitaClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB53AE7207C7372006BC385 /* QiitaClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaClientUITests.swift; sourceTree = "<group>"; };
 		6BB53AE9207C7372006BC385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6BB53AF6207C838C006BC385 /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		6BB53AF6207C838C006BC385 /* NewArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticlesViewController.swift; sourceTree = "<group>"; };
 		6BB53AFC207C8874006BC385 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
-		6BB53AFF207C8A1E006BC385 /* TimelineState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineState.swift; sourceTree = "<group>"; };
+		6BB53AFF207C8A1E006BC385 /* NewArticlesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticlesState.swift; sourceTree = "<group>"; };
 		6BB53B03207C8B04006BC385 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		6BB53B05207C8D28006BC385 /* TimelineStateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineStateAction.swift; sourceTree = "<group>"; };
-		6BB53B07207C8F33006BC385 /* TimelineReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineReducer.swift; sourceTree = "<group>"; };
+		6BB53B05207C8D28006BC385 /* NewArticlesStateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticlesStateAction.swift; sourceTree = "<group>"; };
+		6BB53B07207C8F33006BC385 /* NewArticlesReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticlesReducer.swift; sourceTree = "<group>"; };
 		6BB53B09207C8F9C006BC385 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		6BB53B10207CABDF006BC385 /* TimelineArticlesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineArticlesRequest.swift; sourceTree = "<group>"; };
+		6BB53B10207CABDF006BC385 /* NewArticlesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticlesRequest.swift; sourceTree = "<group>"; };
 		6BB53B14207CAFDF006BC385 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		6BC71CB520C1169A009633B9 /* Unbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Unbox.framework; path = Carthage/Build/iOS/Unbox.framework; sourceTree = "<group>"; };
 		6BC71CB620C1169A009633B9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		6BB53AF5207C8359006BC385 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6BB53AF6207C838C006BC385 /* TimelineViewController.swift */,
+				6BB53AF6207C838C006BC385 /* NewArticlesViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -172,7 +172,7 @@
 		6BB53AF8207C84D5006BC385 /* Action */ = {
 			isa = PBXGroup;
 			children = (
-				6BB53B05207C8D28006BC385 /* TimelineStateAction.swift */,
+				6BB53B05207C8D28006BC385 /* NewArticlesStateAction.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -180,7 +180,7 @@
 		6BB53AF9207C84DC006BC385 /* Reducer */ = {
 			isa = PBXGroup;
 			children = (
-				6BB53B07207C8F33006BC385 /* TimelineReducer.swift */,
+				6BB53B07207C8F33006BC385 /* NewArticlesReducer.swift */,
 			);
 			path = Reducer;
 			sourceTree = "<group>";
@@ -189,7 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				6BB53B09207C8F9C006BC385 /* AppState.swift */,
-				6BB53AFF207C8A1E006BC385 /* TimelineState.swift */,
+				6BB53AFF207C8A1E006BC385 /* NewArticlesState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -225,7 +225,7 @@
 		6BB53B0F207CABBA006BC385 /* Endpoint */ = {
 			isa = PBXGroup;
 			children = (
-				6BB53B10207CABDF006BC385 /* TimelineArticlesRequest.swift */,
+				6BB53B10207CABDF006BC385 /* NewArticlesRequest.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -381,15 +381,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6BB53B04207C8B04006BC385 /* Article.swift in Sources */,
-				6BB53B08207C8F33006BC385 /* TimelineReducer.swift in Sources */,
+				6BB53B08207C8F33006BC385 /* NewArticlesReducer.swift in Sources */,
 				6BB53B0A207C8F9C006BC385 /* AppState.swift in Sources */,
 				6B7AE6AD20C1376B00B2468C /* APIActionCreator.swift in Sources */,
 				6BB53AC6207C736F006BC385 /* AppDelegate.swift in Sources */,
-				6BB53B06207C8D28006BC385 /* TimelineStateAction.swift in Sources */,
-				6BB53AF7207C838C006BC385 /* TimelineViewController.swift in Sources */,
+				6BB53B06207C8D28006BC385 /* NewArticlesStateAction.swift in Sources */,
+				6BB53AF7207C838C006BC385 /* NewArticlesViewController.swift in Sources */,
 				6BB53B15207CAFDF006BC385 /* Request.swift in Sources */,
-				6BB53B00207C8A1E006BC385 /* TimelineState.swift in Sources */,
-				6BB53B11207CABDF006BC385 /* TimelineArticlesRequest.swift in Sources */,
+				6BB53B00207C8A1E006BC385 /* NewArticlesState.swift in Sources */,
+				6BB53B11207CABDF006BC385 /* NewArticlesRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

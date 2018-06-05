@@ -10,5 +10,5 @@ import Foundation
 import ReSwift
 
 struct AppState: StateType {
-    var timeline = TimelineState()
+    var newArticles = NewArticlesState()
 }

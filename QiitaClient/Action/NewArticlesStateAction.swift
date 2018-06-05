@@ -1,5 +1,5 @@
 //
-//  TimelineStateAction.swift
+//  NewArticlesStateAction.swift
 //  QiitaClient
 //
 //  Created by 寺家 篤史 on 2018/04/10.
@@ -9,13 +9,13 @@
 import Foundation
 import ReSwift
 
-extension TimelineState {
-    struct TimelineRefreshAction: Action {
+extension NewArticlesState {
+    struct NewArticlesRefreshAction: Action {
         let isRefresh: Bool
         let pageNumber: Int
     }
 
-    struct TimelineResultAction: Action {
+    struct NewArticlesResultAction: Action {
         let articles: [Article]
     }
 }

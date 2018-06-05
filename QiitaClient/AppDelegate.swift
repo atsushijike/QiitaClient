@@ -9,18 +9,18 @@
 import UIKit
 import ReSwift
 
-let store = Store(reducer: TimelineReducer, state: AppState())
+let store = Store(reducer: NewArticlesReducer, state: AppState())
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let tabBarController = UITabBarController()
-    let timelineViewController = TimelineViewController()
+    let navigationController = UINavigationController(rootViewController: NewArticlesViewController())
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
-        tabBarController.setViewControllers([timelineViewController], animated: false)
+        tabBarController.setViewControllers([navigationController], animated: false)
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         return true
