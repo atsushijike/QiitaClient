@@ -9,6 +9,7 @@
 import UIKit
 import ReSwift
 import AlamofireImage
+import Hydra
 
 class AuthenticatedUserViewController: UITableViewController {
     var authenticatedUserState = store.state.authenticatedUser
@@ -50,16 +51,30 @@ class AuthenticatedUserViewController: UITableViewController {
             return
         }
 
-        let actionCreator = APIActionCreator.send(request: AuthenticatedUserRequest()) { (data) in
-            if data != nil {
-                let jsonDecoder = JSONDecoder()
-                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                let user = try! jsonDecoder.decode(User.self, from: data!)
-                let resultAction = AuthenticatedUserState.AuthenticatedUserUserAction(user: user)
-                store.dispatch(resultAction)
+        Promise<String> { resolve, reject, status in
+            let actionCreator = APIActionCreator.send(request: AuthenticatedUserRequest()) { (data) in
+                if data != nil {
+                    let jsonDecoder = JSONDecoder()
+                    jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let user = try! jsonDecoder.decode(User.self, from: data!)
+                    let resultAction = AuthenticatedUserState.AuthenticatedUserUserAction(user: user)
+                    store.dispatch(resultAction)
+                    resolve(user.id)
+                }
             }
+            store.dispatch(actionCreator)
+        }.then { userId in
+            let actionCreator1 = APIActionCreator.send(request: UserItemsRequest(userId: userId, page: self.authenticatedUserState.pageNumber, perPage: 20)) { (data) in
+                if data != nil {
+                    let jsonDecoder = JSONDecoder()
+                    jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                    let items = try! jsonDecoder.decode(Array<Item>.self, from: data!)
+                    let itemsAction = AuthenticatedUserState.AuthenticatedUserItemsAction(items: items)
+                    store.dispatch(itemsAction)
+                }
+            }
+            store.dispatch(actionCreator1)
         }
-        store.dispatch(actionCreator)
     }
 
     func updateHeaderView() {
@@ -76,11 +91,14 @@ class AuthenticatedUserViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return authenticatedUserState.items?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath)
+        if let item = authenticatedUserState.items?[indexPath.row] {
+            cell.textLabel?.text = item.title
+        }
         return cell
     }
 }

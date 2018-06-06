@@ -9,7 +9,7 @@
 import Foundation
 
 struct UserItemsRequest: Request {
-    var path: String { return "/\(userId)/items" }
+    var path: String { return "/users/\(userId)/items" }
     var method: HTTPMethod { return .get }
     var parameters: [String : Any]? {
         return [
