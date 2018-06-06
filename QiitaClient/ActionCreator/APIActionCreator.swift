@@ -27,7 +27,7 @@ struct APIActionCreator {
             manager.request(url,
                             method: request.method,
                             parameters: request.parameters,
-                            encoding: URLEncoding.default,
+                            encoding: (request.method == .get) ? URLEncoding.default : JSONEncoding.default,
                             headers: request.headers).response { (response) in
                 responseHandler(response.data)
             }
