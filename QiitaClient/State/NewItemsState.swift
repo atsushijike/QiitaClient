@@ -11,9 +11,9 @@ import Foundation
 struct NewItemsState {
     var title: String = "New"
     var pageNumber: Int = 1
+    var isRefresh: Bool = false
     var items: [Item]?
     var errorString: String?
-    var isRefresh: Bool = false
 
     mutating func updateIsRefresh(isRefresh: Bool) {
         self.isRefresh = isRefresh
@@ -25,16 +25,10 @@ struct NewItemsState {
 
     mutating func updateItems(items: [Item]?) {
         self.items = items
-        incrementPageNumber()
     }
 
     mutating func appendItems(items: [Item]?) {
         guard let items = items else { return }
         self.items?.append(contentsOf: items)
-        incrementPageNumber()
-    }
-
-    private mutating func incrementPageNumber() {
-        pageNumber += 1
     }
 }

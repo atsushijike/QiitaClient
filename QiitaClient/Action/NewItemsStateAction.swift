@@ -12,10 +12,13 @@ import ReSwift
 extension NewItemsState {
     struct NewItemsRefreshAction: Action {
         let isRefresh: Bool
+    }
+
+    struct NewItemsPageNumberAction: Action {
         let pageNumber: Int
     }
 
-    struct NewItemsResultAction: Action {
+    struct NewItemsItemsAction: Action {
         let items: [Item]
     }
 }

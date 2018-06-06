@@ -16,8 +16,9 @@ func newItemsReducer(action: Action, state: NewItemsState?) -> NewItemsState {
     switch action {
     case let action as NewItemsState.NewItemsRefreshAction:
         newItemsState.updateIsRefresh(isRefresh: action.isRefresh)
+    case let action as NewItemsState.NewItemsPageNumberAction:
         newItemsState.updatePageNumber(pageNumber: action.pageNumber)
-    case let action as NewItemsState.NewItemsResultAction:
+    case let action as NewItemsState.NewItemsItemsAction:
         newItemsState.updateItems(items: action.items)
     default:
         break

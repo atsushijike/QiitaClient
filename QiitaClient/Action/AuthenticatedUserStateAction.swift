@@ -17,4 +17,12 @@ extension AuthenticatedUserState {
     struct AuthenticatedUserUserAction: Action {
         let user: User
     }
+
+    struct AuthenticatedUserPageNumberAction: Action {
+        let pageNumber: Int
+    }
+    
+    struct AuthenticatedUserItemsAction: Action {
+        let items: [Item]
+    }
 }

@@ -18,6 +18,10 @@ func authenticatedUserReducer(action: Action, state: AuthenticatedUserState?) ->
         authenticatedUserState.updateTitle(title: action.title)
     case let action as AuthenticatedUserState.AuthenticatedUserUserAction:
         authenticatedUserState.updateUser(user: action.user)
+    case let action as AuthenticatedUserState.AuthenticatedUserPageNumberAction:
+        authenticatedUserState.updatePageNumber(pageNumber: action.pageNumber)
+    case let action as AuthenticatedUserState.AuthenticatedUserItemsAction:
+        authenticatedUserState.updateItems(items: action.items)
     default:
         break
     }

@@ -43,19 +43,21 @@ class NewItemsViewController: UITableViewController {
     }
 
     private func refreshData() {
-        let refreshStartAction = NewItemsState.NewItemsRefreshAction(isRefresh: true, pageNumber: 1)
+        let refreshStartAction = NewItemsState.NewItemsRefreshAction(isRefresh: true)
         store.dispatch(refreshStartAction)
 
         let actionCreator = APIActionCreator.send(request: NewItemsRequest(page: newItemsState.pageNumber, perPage: 20)) { (data) in
-            let pageNumber = self.newItemsState.pageNumber
-            let refreshEndAction = NewItemsState.NewItemsRefreshAction(isRefresh: false, pageNumber: pageNumber)
+            let refreshEndAction = NewItemsState.NewItemsRefreshAction(isRefresh: false)
             store.dispatch(refreshEndAction)
+            let pageNumber = self.newItemsState.pageNumber
+            let pageNumberAction = NewItemsState.NewItemsPageNumberAction(pageNumber: pageNumber)
+            store.dispatch(pageNumberAction)
 
             if data != nil {
                 let jsonDecoder = JSONDecoder()
                 jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
                 let items = try! jsonDecoder.decode(Array<Item>.self, from: data!)
-                let resultAction = NewItemsState.NewItemsResultAction(items: items)
+                let resultAction = NewItemsState.NewItemsItemsAction(items: items)
                 store.dispatch(resultAction)
             }
         }

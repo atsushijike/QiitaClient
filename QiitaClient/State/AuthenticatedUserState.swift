@@ -10,7 +10,9 @@ import Foundation
 
 struct AuthenticatedUserState {
     var title: String = ""
+    var pageNumber: Int = 1
     var user: User?
+    var items: [Item]?
 
     mutating func updateTitle(title: String) {
         self.title = title
@@ -18,5 +20,13 @@ struct AuthenticatedUserState {
 
     mutating func updateUser(user: User?) {
         self.user = user
+    }
+
+    mutating func updatePageNumber(pageNumber: Int) {
+        self.pageNumber = pageNumber
+    }
+
+    mutating func updateItems(items: [Item]?) {
+        self.items = items
     }
 }
