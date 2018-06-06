@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import ReSwift
 import WebKit
 import SnapKit
 
 class AuthenticationViewController: UIViewController, WKNavigationDelegate {
+    var authenticationState = store.state.authentication
     let webView = WKWebView(frame: .zero, configuration: WKWebViewConfiguration())
     let clientId = "110f5a9aabd17aaea26cfa6a7855e02e369e154b"
     let clientSecret = "4cfeedb1b1781118b029a201b8ec75c7bb2a27d1"
     let stateId = UUID().uuidString
-    
+
+    deinit {
+        store.unsubscribe(self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +36,7 @@ class AuthenticationViewController: UIViewController, WKNavigationDelegate {
 
         let request = AuthoriseRequest(clientId: clientId, stateId:  stateId)
         webView.load(request.urlRequest)
+        store.subscribe(self)
     }
 
     @objc private func closeButtonAction() {
@@ -47,7 +53,7 @@ class AuthenticationViewController: UIViewController, WKNavigationDelegate {
                 store.dispatch(codeAction)
                 
                 let request = AccessTokenRequest(clientId: clientId, clientSecret: clientSecret, code: code)
-                let actionCreator = APIActionCreator.send(request: request) { (data) in
+                let actionCreator = APIActionCreator.send(request: request) { [weak self] (data) in
                     if data != nil {
                         let jsonDecoder = JSONDecoder()
                         jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -55,7 +61,7 @@ class AuthenticationViewController: UIViewController, WKNavigationDelegate {
                         let accessTokenAction = AuthenticationState.AuthenticationAccessTokenAction(accessToken: authentication.token)
                         store.dispatch(accessTokenAction)
 
-                        self.navigationController?.dismiss(animated: true, completion: nil)
+                        self?.navigationController?.dismiss(animated: true, completion: nil)
                     }
                 }
                 store.dispatch(actionCreator)
@@ -65,5 +71,11 @@ class AuthenticationViewController: UIViewController, WKNavigationDelegate {
         } else {
             decisionHandler(.allow)
         }
+    }
+}
+
+extension AuthenticationViewController: StoreSubscriber {
+    func newState(state: AppState) {
+        authenticationState = state.authentication
     }
 }

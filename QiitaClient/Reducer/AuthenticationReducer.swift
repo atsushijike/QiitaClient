@@ -9,9 +9,9 @@
 import Foundation
 import ReSwift
 
-func AuthenticationReducer(action: Action, state: AppState?) -> AppState {
-    var newState = state ?? AppState()
-    var authenticationState = newState.authentication
+func authenticationReducer(action: Action, state: AuthenticationState?) -> AuthenticationState {
+    var newState = state ?? .init()
+    var authenticationState = newState
     
     switch action {
     case let action as AuthenticationState.AuthenticationCodeAction:
@@ -22,6 +22,6 @@ func AuthenticationReducer(action: Action, state: AppState?) -> AppState {
         break
     }
 
-    newState.authentication = authenticationState
+    newState = authenticationState
     return newState
 }

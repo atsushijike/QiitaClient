@@ -9,9 +9,9 @@
 import Foundation
 import ReSwift
 
-func NewArticlesReducer(action: Action, state: AppState?) -> AppState {
-    var newState = state ?? AppState()
-    var newArticlesState = newState.newArticles
+func newArticlesReducer(action: Action, state: NewArticlesState?) -> NewArticlesState {
+    var newState = state ?? .init()
+    var newArticlesState = newState
 
     switch action {
     case let action as NewArticlesState.NewArticlesRefreshAction:
@@ -23,6 +23,6 @@ func NewArticlesReducer(action: Action, state: AppState?) -> AppState {
         break
     }
 
-    newState.newArticles = newArticlesState
+    newState = newArticlesState
     return newState
 }
