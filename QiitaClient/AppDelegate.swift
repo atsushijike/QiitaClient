@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
-        let viewControllers = [UINavigationController(rootViewController: NewArticlesViewController()),
+        let viewControllers = [UINavigationController(rootViewController: NewItemsViewController()),
                                UINavigationController(rootViewController: AuthenticatedUserViewController())]
         tabBarController.setViewControllers(viewControllers, animated: false)
         window?.rootViewController = tabBarController

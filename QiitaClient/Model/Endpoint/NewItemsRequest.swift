@@ -1,5 +1,5 @@
 //
-//  NewArticlesRequest.swift
+//  NewItemsRequest.swift
 //  QiitaClient
 //
 //  Created by 寺家 篤史 on 2018/04/10.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NewArticlesRequest: Request {
+struct NewItemsRequest: Request {
     var path: String { return "/items" }
     var method: HTTPMethod { return .get }
     var parameters: [String : Any]? {

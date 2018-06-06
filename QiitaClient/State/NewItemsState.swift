@@ -1,5 +1,5 @@
 //
-//  NewArticlesState.swift
+//  NewItemsState.swift
 //  QiitaClient
 //
 //  Created by 寺家 篤史 on 2018/04/10.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct NewArticlesState {
+struct NewItemsState {
     var title: String = "New"
     var pageNumber: Int = 1
-    var articles: [Article]?
+    var items: [Item]?
     var errorString: String?
     var isRefresh: Bool = false
 
@@ -23,14 +23,14 @@ struct NewArticlesState {
         self.pageNumber = pageNumber
     }
 
-    mutating func updateArticles(articles: [Article]?) {
-        self.articles = articles
+    mutating func updateItems(items: [Item]?) {
+        self.items = items
         incrementPageNumber()
     }
 
-    mutating func appendArticles(articles: [Article]?) {
-        guard let articles = articles else { return }
-        self.articles?.append(contentsOf: articles)
+    mutating func appendItems(items: [Item]?) {
+        guard let items = items else { return }
+        self.items?.append(contentsOf: items)
         incrementPageNumber()
     }
 

@@ -11,6 +11,6 @@ import ReSwift
 
 func appReducer(action: Action, state: AppState?) -> AppState {
     return AppState(authentication: authenticationReducer(action: action, state: state?.authentication),
-                    newArticles: newArticlesReducer(action: action, state: state?.newArticles),
+                    newItems: newItemsReducer(action: action, state: state?.newItems),
                     authenticatedUser: authenticatedUserReducer(action: action, state: state?.authenticatedUser))
 }

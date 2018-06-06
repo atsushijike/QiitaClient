@@ -17,13 +17,13 @@
 		6BB53AD2207C7371006BC385 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BB53AD0207C7371006BC385 /* LaunchScreen.storyboard */; };
 		6BB53ADD207C7372006BC385 /* QiitaClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53ADC207C7372006BC385 /* QiitaClientTests.swift */; };
 		6BB53AE8207C7372006BC385 /* QiitaClientUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53AE7207C7372006BC385 /* QiitaClientUITests.swift */; };
-		6BB53AF7207C838C006BC385 /* NewArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53AF6207C838C006BC385 /* NewArticlesViewController.swift */; };
-		6BB53B00207C8A1E006BC385 /* NewArticlesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53AFF207C8A1E006BC385 /* NewArticlesState.swift */; };
-		6BB53B04207C8B04006BC385 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B03207C8B04006BC385 /* Article.swift */; };
-		6BB53B06207C8D28006BC385 /* NewArticlesStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B05207C8D28006BC385 /* NewArticlesStateAction.swift */; };
-		6BB53B08207C8F33006BC385 /* NewArticlesReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B07207C8F33006BC385 /* NewArticlesReducer.swift */; };
+		6BB53AF7207C838C006BC385 /* NewItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53AF6207C838C006BC385 /* NewItemsViewController.swift */; };
+		6BB53B00207C8A1E006BC385 /* NewItemsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53AFF207C8A1E006BC385 /* NewItemsState.swift */; };
+		6BB53B04207C8B04006BC385 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B03207C8B04006BC385 /* Item.swift */; };
+		6BB53B06207C8D28006BC385 /* NewItemsStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B05207C8D28006BC385 /* NewItemsStateAction.swift */; };
+		6BB53B08207C8F33006BC385 /* NewItemsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B07207C8F33006BC385 /* NewItemsReducer.swift */; };
 		6BB53B0A207C8F9C006BC385 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B09207C8F9C006BC385 /* AppState.swift */; };
-		6BB53B11207CABDF006BC385 /* NewArticlesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B10207CABDF006BC385 /* NewArticlesRequest.swift */; };
+		6BB53B11207CABDF006BC385 /* NewItemsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B10207CABDF006BC385 /* NewItemsRequest.swift */; };
 		6BB53B15207CAFDF006BC385 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B14207CAFDF006BC385 /* Request.swift */; };
 		6BC71CB420C11699009633B9 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB53AFC207C8874006BC385 /* ReSwift.framework */; };
 		6BC71CB720C1169A009633B9 /* Unbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC71CB520C1169A009633B9 /* Unbox.framework */; };
@@ -78,14 +78,14 @@
 		6BB53AE3207C7372006BC385 /* QiitaClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QiitaClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BB53AE7207C7372006BC385 /* QiitaClientUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaClientUITests.swift; sourceTree = "<group>"; };
 		6BB53AE9207C7372006BC385 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6BB53AF6207C838C006BC385 /* NewArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticlesViewController.swift; sourceTree = "<group>"; };
+		6BB53AF6207C838C006BC385 /* NewItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemsViewController.swift; sourceTree = "<group>"; };
 		6BB53AFC207C8874006BC385 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
-		6BB53AFF207C8A1E006BC385 /* NewArticlesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticlesState.swift; sourceTree = "<group>"; };
-		6BB53B03207C8B04006BC385 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
-		6BB53B05207C8D28006BC385 /* NewArticlesStateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticlesStateAction.swift; sourceTree = "<group>"; };
-		6BB53B07207C8F33006BC385 /* NewArticlesReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticlesReducer.swift; sourceTree = "<group>"; };
+		6BB53AFF207C8A1E006BC385 /* NewItemsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemsState.swift; sourceTree = "<group>"; };
+		6BB53B03207C8B04006BC385 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		6BB53B05207C8D28006BC385 /* NewItemsStateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemsStateAction.swift; sourceTree = "<group>"; };
+		6BB53B07207C8F33006BC385 /* NewItemsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemsReducer.swift; sourceTree = "<group>"; };
 		6BB53B09207C8F9C006BC385 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		6BB53B10207CABDF006BC385 /* NewArticlesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewArticlesRequest.swift; sourceTree = "<group>"; };
+		6BB53B10207CABDF006BC385 /* NewItemsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemsRequest.swift; sourceTree = "<group>"; };
 		6BB53B14207CAFDF006BC385 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		6BC71CB520C1169A009633B9 /* Unbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Unbox.framework; path = Carthage/Build/iOS/Unbox.framework; sourceTree = "<group>"; };
 		6BC71CB620C1169A009633B9 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -203,7 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				6B6A60AF20C672C100D8E9A0 /* AuthenticationViewController.swift */,
-				6BB53AF6207C838C006BC385 /* NewArticlesViewController.swift */,
+				6BB53AF6207C838C006BC385 /* NewItemsViewController.swift */,
 				6B5AA4B820C7C287004DC312 /* AuthenticatedUserViewController.swift */,
 				6BD6CC3C20C7973000498859 /* UserViewController.swift */,
 			);
@@ -214,7 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				6BD6CC3420C68BF400498859 /* AuthenticationStateAction.swift */,
-				6BB53B05207C8D28006BC385 /* NewArticlesStateAction.swift */,
+				6BB53B05207C8D28006BC385 /* NewItemsStateAction.swift */,
 				6BD6CC4420C7AD5200498859 /* AuthenticatedUserStateAction.swift */,
 			);
 			path = Action;
@@ -225,7 +225,7 @@
 			children = (
 				6BD6CC3A20C78A5900498859 /* AppReducer.swift */,
 				6BD6CC3620C68C5000498859 /* AuthenticationReducer.swift */,
-				6BB53B07207C8F33006BC385 /* NewArticlesReducer.swift */,
+				6BB53B07207C8F33006BC385 /* NewItemsReducer.swift */,
 				6BD6CC4620C7ADC200498859 /* AuthenticatedUserReducer.swift */,
 			);
 			path = Reducer;
@@ -236,7 +236,7 @@
 			children = (
 				6BB53B09207C8F9C006BC385 /* AppState.swift */,
 				6BD6CC3220C68B6B00498859 /* AuthenticationState.swift */,
-				6BB53AFF207C8A1E006BC385 /* NewArticlesState.swift */,
+				6BB53AFF207C8A1E006BC385 /* NewItemsState.swift */,
 				6BD6CC4220C79F0700498859 /* AuthenticatedUserState.swift */,
 			);
 			path = State;
@@ -269,7 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				6BD6CC3820C68E9B00498859 /* Authentication.swift */,
-				6BB53B03207C8B04006BC385 /* Article.swift */,
+				6BB53B03207C8B04006BC385 /* Item.swift */,
 				6BD6CC4020C79BF200498859 /* User.swift */,
 			);
 			path = Entity;
@@ -280,7 +280,7 @@
 			children = (
 				6BD6CC2C20C67EEE00498859 /* AuthoriseRequest.swift */,
 				6BD6CC3020C689F300498859 /* AccessTokenRequest.swift */,
-				6BB53B10207CABDF006BC385 /* NewArticlesRequest.swift */,
+				6BB53B10207CABDF006BC385 /* NewItemsRequest.swift */,
 				6BD6CC3E20C79B9400498859 /* AuthenticatedUserRequest.swift */,
 			);
 			path = Endpoint;
@@ -438,27 +438,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BB53B04207C8B04006BC385 /* Article.swift in Sources */,
+				6BB53B04207C8B04006BC385 /* Item.swift in Sources */,
 				6B6A60B020C672C100D8E9A0 /* AuthenticationViewController.swift in Sources */,
-				6BB53B08207C8F33006BC385 /* NewArticlesReducer.swift in Sources */,
+				6BB53B08207C8F33006BC385 /* NewItemsReducer.swift in Sources */,
 				6BB53B0A207C8F9C006BC385 /* AppState.swift in Sources */,
 				6B7AE6AD20C1376B00B2468C /* APIActionCreator.swift in Sources */,
 				6BB53AC6207C736F006BC385 /* AppDelegate.swift in Sources */,
 				6BD6CC4720C7ADC200498859 /* AuthenticatedUserReducer.swift in Sources */,
 				6BD6CC2D20C67EEE00498859 /* AuthoriseRequest.swift in Sources */,
-				6BB53B06207C8D28006BC385 /* NewArticlesStateAction.swift in Sources */,
+				6BB53B06207C8D28006BC385 /* NewItemsStateAction.swift in Sources */,
 				6BD6CC4320C79F0700498859 /* AuthenticatedUserState.swift in Sources */,
-				6BB53AF7207C838C006BC385 /* NewArticlesViewController.swift in Sources */,
+				6BB53AF7207C838C006BC385 /* NewItemsViewController.swift in Sources */,
 				6BB53B15207CAFDF006BC385 /* Request.swift in Sources */,
 				6BD6CC4120C79BF200498859 /* User.swift in Sources */,
 				6BD6CC3B20C78A5900498859 /* AppReducer.swift in Sources */,
 				6BD6CC3520C68BF400498859 /* AuthenticationStateAction.swift in Sources */,
 				6BD6CC3320C68B6B00498859 /* AuthenticationState.swift in Sources */,
-				6BB53B00207C8A1E006BC385 /* NewArticlesState.swift in Sources */,
+				6BB53B00207C8A1E006BC385 /* NewItemsState.swift in Sources */,
 				6BD6CC2F20C6865500498859 /* AuthoriseResponse.swift in Sources */,
 				6BD6CC3F20C79B9400498859 /* AuthenticatedUserRequest.swift in Sources */,
 				6BD6CC3D20C7973000498859 /* UserViewController.swift in Sources */,
-				6BB53B11207CABDF006BC385 /* NewArticlesRequest.swift in Sources */,
+				6BB53B11207CABDF006BC385 /* NewItemsRequest.swift in Sources */,
 				6BD6CC3720C68C5000498859 /* AuthenticationReducer.swift in Sources */,
 				6BD6CC3120C689F300498859 /* AccessTokenRequest.swift in Sources */,
 				6BD6CC4520C7AD5200498859 /* AuthenticatedUserStateAction.swift in Sources */,

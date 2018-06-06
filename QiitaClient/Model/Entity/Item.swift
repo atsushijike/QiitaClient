@@ -1,5 +1,5 @@
 //
-//  Article.swift
+//  Item.swift
 //  QiitaClient
 //
 //  Created by 寺家 篤史 on 2018/04/10.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Article: Codable {
+struct Item: Codable {
     /* HTML形式の本文
      * Example: "<h1>Example</h1>" */
     let renderedBody: String

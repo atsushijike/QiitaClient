@@ -1,5 +1,5 @@
 //
-//  NewArticlesViewController.swift
+//  NewItemsViewController.swift
 //  QiitaClient
 //
 //  Created by 寺家 篤史 on 2018/04/10.
@@ -13,8 +13,8 @@ private func defaultCellIdentifier<T: NSObject>(_ clazz: T.Type) -> String {
     return String(describing: clazz)
 }
 
-class NewArticlesViewController: UITableViewController {
-    var newArticlesState = store.state.newArticles
+class NewItemsViewController: UITableViewController {
+    var newItemsState = store.state.newItems
 
     deinit {
         store.unsubscribe(self)
@@ -22,12 +22,12 @@ class NewArticlesViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = newArticlesState.title
+        title = newItemsState.title
         navigationController?.tabBarItem.title = title
         navigationController?.tabBarItem.image = #imageLiteral(resourceName: "first")
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshBarButtonAction))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(loginBarButtonAction))
-        tableView.register(NewArticlesTableViewCell.self, forCellReuseIdentifier: "default")
+        tableView.register(NewItemsTableViewCell.self, forCellReuseIdentifier: "default")
         store.subscribe(self)
         refreshData()
     }
@@ -43,19 +43,19 @@ class NewArticlesViewController: UITableViewController {
     }
 
     private func refreshData() {
-        let refreshStartAction = NewArticlesState.NewArticlesRefreshAction(isRefresh: true, pageNumber: 1)
+        let refreshStartAction = NewItemsState.NewItemsRefreshAction(isRefresh: true, pageNumber: 1)
         store.dispatch(refreshStartAction)
 
-        let actionCreator = APIActionCreator.send(request: NewArticlesRequest(page: newArticlesState.pageNumber, perPage: 20)) { (data) in
-            let pageNumber = self.newArticlesState.pageNumber
-            let refreshEndAction = NewArticlesState.NewArticlesRefreshAction(isRefresh: false, pageNumber: pageNumber)
+        let actionCreator = APIActionCreator.send(request: NewItemsRequest(page: newItemsState.pageNumber, perPage: 20)) { (data) in
+            let pageNumber = self.newItemsState.pageNumber
+            let refreshEndAction = NewItemsState.NewItemsRefreshAction(isRefresh: false, pageNumber: pageNumber)
             store.dispatch(refreshEndAction)
 
             if data != nil {
                 let jsonDecoder = JSONDecoder()
                 jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                let articles = try! jsonDecoder.decode(Array<Article>.self, from: data!)
-                let resultAction = NewArticlesState.NewArticlesResultAction(articles: articles)
+                let items = try! jsonDecoder.decode(Array<Item>.self, from: data!)
+                let resultAction = NewItemsState.NewItemsResultAction(items: items)
                 store.dispatch(resultAction)
             }
         }
@@ -67,25 +67,25 @@ class NewArticlesViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newArticlesState.articles?.count ?? 0
+        return newItemsState.items?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath)
-        if let article = newArticlesState.articles?[indexPath.row] {
-            cell.textLabel?.text = article.title
+        if let item = newItemsState.items?[indexPath.row] {
+            cell.textLabel?.text = item.title
         }
         return cell
     }
 }
 
-extension NewArticlesViewController: StoreSubscriber {
+extension NewItemsViewController: StoreSubscriber {
     func newState(state: AppState) {
-        newArticlesState = state.newArticles
+        newItemsState = state.newItems
         tableView.reloadData()
     }
 }
 
-private class NewArticlesTableViewCell: UITableViewCell {
+private class NewItemsTableViewCell: UITableViewCell {
     
 }

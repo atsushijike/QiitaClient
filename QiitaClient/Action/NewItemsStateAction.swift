@@ -1,5 +1,5 @@
 //
-//  NewArticlesStateAction.swift
+//  NewItemsStateAction.swift
 //  QiitaClient
 //
 //  Created by 寺家 篤史 on 2018/04/10.
@@ -9,13 +9,13 @@
 import Foundation
 import ReSwift
 
-extension NewArticlesState {
-    struct NewArticlesRefreshAction: Action {
+extension NewItemsState {
+    struct NewItemsRefreshAction: Action {
         let isRefresh: Bool
         let pageNumber: Int
     }
 
-    struct NewArticlesResultAction: Action {
-        let articles: [Article]
+    struct NewItemsResultAction: Action {
+        let items: [Item]
     }
 }

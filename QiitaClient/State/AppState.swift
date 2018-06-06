@@ -11,6 +11,6 @@ import ReSwift
 
 struct AppState: StateType {
     var authentication = AuthenticationState()
-    var newArticles = NewArticlesState()
+    var newItems = NewItemsState()
     var authenticatedUser = AuthenticatedUserState()
 }
