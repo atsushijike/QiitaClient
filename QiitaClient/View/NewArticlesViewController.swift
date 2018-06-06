@@ -86,6 +86,6 @@ extension NewArticlesViewController: StoreSubscriber {
     }
 }
 
-class NewArticlesTableViewCell: UITableViewCell {
+private class NewArticlesTableViewCell: UITableViewCell {
     
 }

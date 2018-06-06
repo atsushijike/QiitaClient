@@ -13,7 +13,10 @@ struct AuthenticationState {
     let clientSecret = "4cfeedb1b1781118b029a201b8ec75c7bb2a27d1"
     let stateId = UUID().uuidString
     var code: String = ""
-    var accessToken: String = ""
+    var accessToken: String {
+        get { return UserDefaults.standard.object(forKey: "accessToken") as? String ?? "" }
+        set { UserDefaults.standard.set(newValue, forKey: "accessToken") }
+    }
 
     mutating func updateCode(code: String) {
         self.code = code

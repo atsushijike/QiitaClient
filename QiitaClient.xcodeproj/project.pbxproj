@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B5AA4B720C7BC6D004DC312 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5AA4B620C7BC6D004DC312 /* AlamofireImage.framework */; };
+		6B5AA4B920C7C287004DC312 /* AuthenticatedUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5AA4B820C7C287004DC312 /* AuthenticatedUserViewController.swift */; };
 		6B6A60B020C672C100D8E9A0 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6A60AF20C672C100D8E9A0 /* AuthenticationViewController.swift */; };
 		6B6A60B220C674DB00D8E9A0 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B6A60B120C674DA00D8E9A0 /* SnapKit.framework */; };
 		6B7AE6AD20C1376B00B2468C /* APIActionCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7AE6AC20C1376B00B2468C /* APIActionCreator.swift */; };
@@ -60,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B5AA4B620C7BC6D004DC312 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
+		6B5AA4B820C7C287004DC312 /* AuthenticatedUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedUserViewController.swift; sourceTree = "<group>"; };
 		6B6A60AF20C672C100D8E9A0 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		6B6A60B120C674DA00D8E9A0 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		6B7AE6AC20C1376B00B2468C /* APIActionCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIActionCreator.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B5AA4B720C7BC6D004DC312 /* AlamofireImage.framework in Frameworks */,
 				6B6A60B220C674DB00D8E9A0 /* SnapKit.framework in Frameworks */,
 				6BC71CB720C1169A009633B9 /* Unbox.framework in Frameworks */,
 				6BC71CB820C1169A009633B9 /* Alamofire.framework in Frameworks */,
@@ -199,6 +204,7 @@
 			children = (
 				6B6A60AF20C672C100D8E9A0 /* AuthenticationViewController.swift */,
 				6BB53AF6207C838C006BC385 /* NewArticlesViewController.swift */,
+				6B5AA4B820C7C287004DC312 /* AuthenticatedUserViewController.swift */,
 				6BD6CC3C20C7973000498859 /* UserViewController.swift */,
 			);
 			path = View;
@@ -239,6 +245,7 @@
 		6BB53AFB207C8874006BC385 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6B5AA4B620C7BC6D004DC312 /* AlamofireImage.framework */,
 				6B6A60B120C674DA00D8E9A0 /* SnapKit.framework */,
 				6BC71CB620C1169A009633B9 /* Alamofire.framework */,
 				6BC71CB520C1169A009633B9 /* Unbox.framework */,
@@ -416,6 +423,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Unbox.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 			);
 			outputPaths = (
 			);
@@ -455,6 +463,7 @@
 				6BD6CC3120C689F300498859 /* AccessTokenRequest.swift in Sources */,
 				6BD6CC4520C7AD5200498859 /* AuthenticatedUserStateAction.swift in Sources */,
 				6BD6CC3920C68E9B00498859 /* Authentication.swift in Sources */,
+				6B5AA4B920C7C287004DC312 /* AuthenticatedUserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
