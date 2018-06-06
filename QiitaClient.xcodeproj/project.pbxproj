@@ -34,6 +34,12 @@
 		6BD6CC3720C68C5000498859 /* AuthenticationReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC3620C68C5000498859 /* AuthenticationReducer.swift */; };
 		6BD6CC3920C68E9B00498859 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC3820C68E9B00498859 /* Authentication.swift */; };
 		6BD6CC3B20C78A5900498859 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC3A20C78A5900498859 /* AppReducer.swift */; };
+		6BD6CC3D20C7973000498859 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC3C20C7973000498859 /* UserViewController.swift */; };
+		6BD6CC3F20C79B9400498859 /* AuthenticatedUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC3E20C79B9400498859 /* AuthenticatedUserRequest.swift */; };
+		6BD6CC4120C79BF200498859 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC4020C79BF200498859 /* User.swift */; };
+		6BD6CC4320C79F0700498859 /* AuthenticatedUserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC4220C79F0700498859 /* AuthenticatedUserState.swift */; };
+		6BD6CC4520C7AD5200498859 /* AuthenticatedUserStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC4420C7AD5200498859 /* AuthenticatedUserStateAction.swift */; };
+		6BD6CC4720C7ADC200498859 /* AuthenticatedUserReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC4620C7ADC200498859 /* AuthenticatedUserReducer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +93,12 @@
 		6BD6CC3620C68C5000498859 /* AuthenticationReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationReducer.swift; sourceTree = "<group>"; };
 		6BD6CC3820C68E9B00498859 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		6BD6CC3A20C78A5900498859 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		6BD6CC3C20C7973000498859 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		6BD6CC3E20C79B9400498859 /* AuthenticatedUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedUserRequest.swift; sourceTree = "<group>"; };
+		6BD6CC4020C79BF200498859 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		6BD6CC4220C79F0700498859 /* AuthenticatedUserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedUserState.swift; sourceTree = "<group>"; };
+		6BD6CC4420C7AD5200498859 /* AuthenticatedUserStateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedUserStateAction.swift; sourceTree = "<group>"; };
+		6BD6CC4620C7ADC200498859 /* AuthenticatedUserReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedUserReducer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,8 +197,9 @@
 		6BB53AF5207C8359006BC385 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6BB53AF6207C838C006BC385 /* NewArticlesViewController.swift */,
 				6B6A60AF20C672C100D8E9A0 /* AuthenticationViewController.swift */,
+				6BB53AF6207C838C006BC385 /* NewArticlesViewController.swift */,
+				6BD6CC3C20C7973000498859 /* UserViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,8 +207,9 @@
 		6BB53AF8207C84D5006BC385 /* Action */ = {
 			isa = PBXGroup;
 			children = (
-				6BB53B05207C8D28006BC385 /* NewArticlesStateAction.swift */,
 				6BD6CC3420C68BF400498859 /* AuthenticationStateAction.swift */,
+				6BB53B05207C8D28006BC385 /* NewArticlesStateAction.swift */,
+				6BD6CC4420C7AD5200498859 /* AuthenticatedUserStateAction.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -204,8 +218,9 @@
 			isa = PBXGroup;
 			children = (
 				6BD6CC3A20C78A5900498859 /* AppReducer.swift */,
-				6BB53B07207C8F33006BC385 /* NewArticlesReducer.swift */,
 				6BD6CC3620C68C5000498859 /* AuthenticationReducer.swift */,
+				6BB53B07207C8F33006BC385 /* NewArticlesReducer.swift */,
+				6BD6CC4620C7ADC200498859 /* AuthenticatedUserReducer.swift */,
 			);
 			path = Reducer;
 			sourceTree = "<group>";
@@ -214,8 +229,9 @@
 			isa = PBXGroup;
 			children = (
 				6BB53B09207C8F9C006BC385 /* AppState.swift */,
-				6BB53AFF207C8A1E006BC385 /* NewArticlesState.swift */,
 				6BD6CC3220C68B6B00498859 /* AuthenticationState.swift */,
+				6BB53AFF207C8A1E006BC385 /* NewArticlesState.swift */,
+				6BD6CC4220C79F0700498859 /* AuthenticatedUserState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -245,8 +261,9 @@
 		6BB53B02207C8AF7006BC385 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				6BB53B03207C8B04006BC385 /* Article.swift */,
 				6BD6CC3820C68E9B00498859 /* Authentication.swift */,
+				6BB53B03207C8B04006BC385 /* Article.swift */,
+				6BD6CC4020C79BF200498859 /* User.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -254,9 +271,10 @@
 		6BB53B0F207CABBA006BC385 /* Endpoint */ = {
 			isa = PBXGroup;
 			children = (
-				6BB53B10207CABDF006BC385 /* NewArticlesRequest.swift */,
 				6BD6CC2C20C67EEE00498859 /* AuthoriseRequest.swift */,
 				6BD6CC3020C689F300498859 /* AccessTokenRequest.swift */,
+				6BB53B10207CABDF006BC385 /* NewArticlesRequest.swift */,
+				6BD6CC3E20C79B9400498859 /* AuthenticatedUserRequest.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -418,18 +436,24 @@
 				6BB53B0A207C8F9C006BC385 /* AppState.swift in Sources */,
 				6B7AE6AD20C1376B00B2468C /* APIActionCreator.swift in Sources */,
 				6BB53AC6207C736F006BC385 /* AppDelegate.swift in Sources */,
+				6BD6CC4720C7ADC200498859 /* AuthenticatedUserReducer.swift in Sources */,
 				6BD6CC2D20C67EEE00498859 /* AuthoriseRequest.swift in Sources */,
 				6BB53B06207C8D28006BC385 /* NewArticlesStateAction.swift in Sources */,
+				6BD6CC4320C79F0700498859 /* AuthenticatedUserState.swift in Sources */,
 				6BB53AF7207C838C006BC385 /* NewArticlesViewController.swift in Sources */,
 				6BB53B15207CAFDF006BC385 /* Request.swift in Sources */,
+				6BD6CC4120C79BF200498859 /* User.swift in Sources */,
 				6BD6CC3B20C78A5900498859 /* AppReducer.swift in Sources */,
 				6BD6CC3520C68BF400498859 /* AuthenticationStateAction.swift in Sources */,
 				6BD6CC3320C68B6B00498859 /* AuthenticationState.swift in Sources */,
 				6BB53B00207C8A1E006BC385 /* NewArticlesState.swift in Sources */,
 				6BD6CC2F20C6865500498859 /* AuthoriseResponse.swift in Sources */,
+				6BD6CC3F20C79B9400498859 /* AuthenticatedUserRequest.swift in Sources */,
+				6BD6CC3D20C7973000498859 /* UserViewController.swift in Sources */,
 				6BB53B11207CABDF006BC385 /* NewArticlesRequest.swift in Sources */,
 				6BD6CC3720C68C5000498859 /* AuthenticationReducer.swift in Sources */,
 				6BD6CC3120C689F300498859 /* AccessTokenRequest.swift in Sources */,
+				6BD6CC4520C7AD5200498859 /* AuthenticatedUserStateAction.swift in Sources */,
 				6BD6CC3920C68E9B00498859 /* Authentication.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

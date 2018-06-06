@@ -81,7 +81,7 @@ class NewArticlesViewController: UITableViewController {
 
 extension NewArticlesViewController: StoreSubscriber {
     func newState(state: AppState) {
-         newArticlesState = state.newArticles
+        newArticlesState = state.newArticles
         tableView.reloadData()
     }
 }

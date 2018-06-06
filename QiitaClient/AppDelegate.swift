@@ -15,12 +15,12 @@ let store = Store(reducer: appReducer, state: AppState())
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let tabBarController = UITabBarController()
-    let navigationController = UINavigationController(rootViewController: NewArticlesViewController())
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
-        tabBarController.setViewControllers([navigationController], animated: false)
+        let viewControllers = [UINavigationController(rootViewController: NewArticlesViewController()),
+                               UINavigationController(rootViewController: UserViewController())]
+        tabBarController.setViewControllers(viewControllers, animated: false)
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         return true
