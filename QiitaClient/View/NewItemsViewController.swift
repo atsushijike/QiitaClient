@@ -81,6 +81,14 @@ class NewItemsViewController: UITableViewController {
         }
         return cell
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let item = newItemsState.items?[indexPath.row] {
+            let vc = ItemViewController(item: item)
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 extension NewItemsViewController: StoreSubscriber {

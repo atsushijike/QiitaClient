@@ -46,6 +46,7 @@
 		6BEA533020C8E0B40075A290 /* UserFolloweesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEA532F20C8E0B40075A290 /* UserFolloweesRequest.swift */; };
 		6BEA533220C8F8FF0075A290 /* UserFollowersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEA533120C8F8FF0075A290 /* UserFollowersRequest.swift */; };
 		6BEA533520C8FACA0075A290 /* EnumCollection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEA533420C8FACA0075A290 /* EnumCollection+Extension.swift */; };
+		6BEA533720C8FD970075A290 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEA533620C8FD970075A290 /* ItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		6BEA532F20C8E0B40075A290 /* UserFolloweesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFolloweesRequest.swift; sourceTree = "<group>"; };
 		6BEA533120C8F8FF0075A290 /* UserFollowersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowersRequest.swift; sourceTree = "<group>"; };
 		6BEA533420C8FACA0075A290 /* EnumCollection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnumCollection+Extension.swift"; sourceTree = "<group>"; };
+		6BEA533620C8FD970075A290 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 				6B6A60AF20C672C100D8E9A0 /* AuthenticationViewController.swift */,
 				6BB53AF6207C838C006BC385 /* NewItemsViewController.swift */,
 				6B5AA4B820C7C287004DC312 /* AuthenticatedUserViewController.swift */,
+				6BEA533620C8FD970075A290 /* ItemViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				6B5AA4C120C7D28C004DC312 /* UserItemsRequest.swift in Sources */,
 				6BD6CC3B20C78A5900498859 /* AppReducer.swift in Sources */,
 				6BD6CC3520C68BF400498859 /* AuthenticationStateAction.swift in Sources */,
+				6BEA533720C8FD970075A290 /* ItemViewController.swift in Sources */,
 				6BD6CC3320C68B6B00498859 /* AuthenticationState.swift in Sources */,
 				6BB53B00207C8A1E006BC385 /* NewItemsState.swift in Sources */,
 				6BEA533220C8F8FF0075A290 /* UserFollowersRequest.swift in Sources */,
