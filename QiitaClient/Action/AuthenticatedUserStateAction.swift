@@ -21,8 +21,12 @@ extension AuthenticatedUserState {
     struct AuthenticatedUserPageNumberAction: Action {
         let pageNumber: Int
     }
-    
+
     struct AuthenticatedUserItemsAction: Action {
         let items: [Item]
+    }
+
+    struct AuthenticatedUserFolloweesAction: Action {
+        let followees: [User]
     }
 }

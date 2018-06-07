@@ -12,8 +12,14 @@ import AlamofireImage
 import Hydra
 
 class AuthenticatedUserViewController: UITableViewController {
+    enum ListType: Int {
+        case items = 0, followees = 1
+    }
     var authenticatedUserState = store.state.authenticatedUser
     private let headerView = UserHeaderView(frame: .zero)
+    var listType: ListType = .items {
+        didSet { tableView.reloadData() }
+    }
     
     deinit {
         store.unsubscribe(self)
@@ -26,7 +32,7 @@ class AuthenticatedUserViewController: UITableViewController {
         tableView.register(AuthenticatedUserTableViewCell.self, forCellReuseIdentifier: "default")
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refreshBarButtonAction), for: .valueChanged)
-        headerView.segmentedControl.addTarget(self, action: #selector(headerViewSegmentedControlAction), for: .touchDown)
+        headerView.segmentedControl.addTarget(self, action: #selector(headerViewSegmentedControlAction), for: .valueChanged)
         store.subscribe(self)
         refreshData()
     }
@@ -45,7 +51,8 @@ class AuthenticatedUserViewController: UITableViewController {
     }
 
     @objc private func headerViewSegmentedControlAction(sender: Any) {
-        
+        guard let type = ListType(rawValue: headerView.segmentedControl.selectedSegmentIndex) else { return }
+        listType = type
     }
 
     func refreshData() {
@@ -72,9 +79,9 @@ class AuthenticatedUserViewController: UITableViewController {
                 store.dispatch(actionCreator)
             })
         }
-        
-        func fetchItems(userId: String) -> Promise<Any> {
-            return Promise<Any>(in: .background, { (resolve, reject, operation) in
+
+        func fetchItems(userId: String) -> Promise<String> {
+            return Promise<String>(in: .background, { (resolve, reject, operation) in
                 let actionCreator = APIActionCreator.send(request: UserItemsRequest(userId: userId, page: self.authenticatedUserState.pageNumber, perPage: 20)) { [weak self] (data) in
                     let pageNumber = self?.authenticatedUserState.pageNumber ?? 1
                     let pageNumberAction = AuthenticatedUserState.AuthenticatedUserPageNumberAction(pageNumber: pageNumber)
@@ -86,14 +93,34 @@ class AuthenticatedUserViewController: UITableViewController {
                         let items = try! jsonDecoder.decode(Array<Item>.self, from: data!)
                         let itemsAction = AuthenticatedUserState.AuthenticatedUserItemsAction(items: items)
                         store.dispatch(itemsAction)
-                        resolve(items)
+                        resolve(userId)
                     }
                 }
                 store.dispatch(actionCreator)
             })
         }
 
-        fetchUser().then(fetchItems).then { [weak self] (items) in
+        func fetchFollowees(userId: String) -> Promise<String> {
+            return Promise<String>(in: .background, { (resolve, reject, operation) in
+                let actionCreator = APIActionCreator.send(request: UserFolloweesRequest(userId: userId, page: self.authenticatedUserState.pageNumber, perPage: 20)) { [weak self] (data) in
+                    let pageNumber = self?.authenticatedUserState.pageNumber ?? 1
+                    let pageNumberAction = AuthenticatedUserState.AuthenticatedUserPageNumberAction(pageNumber: pageNumber)
+                    store.dispatch(pageNumberAction)
+                    
+                    if data != nil {
+                        let jsonDecoder = JSONDecoder()
+                        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                        let followees = try! jsonDecoder.decode(Array<User>.self, from: data!)
+                        let followeesAction = AuthenticatedUserState.AuthenticatedUserFolloweesAction(followees: followees)
+                        store.dispatch(followeesAction)
+                        resolve(userId)
+                    }
+                }
+                store.dispatch(actionCreator)
+            })
+        }
+
+        fetchUser().then(fetchItems).then(fetchFollowees).then { [weak self] (userId) in
             self?.updateHeaderView()
             self?.tableView.reloadData()
             self?.refreshControl?.endRefreshing()
@@ -115,13 +142,21 @@ class AuthenticatedUserViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return authenticatedUserState.items?.count ?? 0
+        switch listType {
+        case .items:
+            return authenticatedUserState.items?.count ?? 0
+        case .followees:
+            return authenticatedUserState.followees?.count ?? 0
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "default", for: indexPath)
-        if let item = authenticatedUserState.items?[indexPath.row] {
-            cell.textLabel?.text = item.title
+        switch listType {
+        case .items:
+            cell.textLabel?.text = authenticatedUserState.items?[indexPath.row].title
+        case .followees:
+            cell.textLabel?.text = authenticatedUserState.followees?[indexPath.row].name
         }
         return cell
     }

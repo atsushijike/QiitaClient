@@ -43,6 +43,7 @@
 		6BD6CC4320C79F0700498859 /* AuthenticatedUserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC4220C79F0700498859 /* AuthenticatedUserState.swift */; };
 		6BD6CC4520C7AD5200498859 /* AuthenticatedUserStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC4420C7AD5200498859 /* AuthenticatedUserStateAction.swift */; };
 		6BD6CC4720C7ADC200498859 /* AuthenticatedUserReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC4620C7ADC200498859 /* AuthenticatedUserReducer.swift */; };
+		6BEA533020C8E0B40075A290 /* UserFolloweesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEA532F20C8E0B40075A290 /* UserFolloweesRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		6BD6CC4220C79F0700498859 /* AuthenticatedUserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedUserState.swift; sourceTree = "<group>"; };
 		6BD6CC4420C7AD5200498859 /* AuthenticatedUserStateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedUserStateAction.swift; sourceTree = "<group>"; };
 		6BD6CC4620C7ADC200498859 /* AuthenticatedUserReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedUserReducer.swift; sourceTree = "<group>"; };
+		6BEA532F20C8E0B40075A290 /* UserFolloweesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFolloweesRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,7 @@
 				6BB53B10207CABDF006BC385 /* NewItemsRequest.swift */,
 				6BD6CC3E20C79B9400498859 /* AuthenticatedUserRequest.swift */,
 				6B5AA4C020C7D28C004DC312 /* UserItemsRequest.swift */,
+				6BEA532F20C8E0B40075A290 /* UserFolloweesRequest.swift */,
 			);
 			path = Endpoint;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				6BB53B11207CABDF006BC385 /* NewItemsRequest.swift in Sources */,
 				6BD6CC3720C68C5000498859 /* AuthenticationReducer.swift in Sources */,
 				6BD6CC3120C689F300498859 /* AccessTokenRequest.swift in Sources */,
+				6BEA533020C8E0B40075A290 /* UserFolloweesRequest.swift in Sources */,
 				6BD6CC4520C7AD5200498859 /* AuthenticatedUserStateAction.swift in Sources */,
 				6BD6CC3920C68E9B00498859 /* Authentication.swift in Sources */,
 				6B5AA4B920C7C287004DC312 /* AuthenticatedUserViewController.swift in Sources */,

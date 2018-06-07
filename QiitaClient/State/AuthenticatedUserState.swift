@@ -13,6 +13,7 @@ struct AuthenticatedUserState {
     var pageNumber: Int = 1
     var user: User?
     var items: [Item]?
+    var followees: [User]?
 
     mutating func updateTitle(title: String) {
         self.title = title
@@ -28,5 +29,9 @@ struct AuthenticatedUserState {
 
     mutating func updateItems(items: [Item]?) {
         self.items = items
+    }
+
+    mutating func updateFollowees(followees: [User]?) {
+        self.followees = followees
     }
 }
