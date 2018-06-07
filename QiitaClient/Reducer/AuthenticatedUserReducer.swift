@@ -24,6 +24,8 @@ func authenticatedUserReducer(action: Action, state: AuthenticatedUserState?) ->
         authenticatedUserState.updateItems(items: action.items)
     case let action as AuthenticatedUserState.AuthenticatedUserFolloweesAction:
         authenticatedUserState.updateFollowees(followees: action.followees)
+    case let action as AuthenticatedUserState.AuthenticatedUserFollowersAction:
+        authenticatedUserState.updateFollowers(followers: action.followers)
     default:
         break
     }

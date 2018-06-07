@@ -29,4 +29,8 @@ extension AuthenticatedUserState {
     struct AuthenticatedUserFolloweesAction: Action {
         let followees: [User]
     }
+
+    struct AuthenticatedUserFollowersAction: Action {
+        let followers: [User]
+    }
 }

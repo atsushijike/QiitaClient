@@ -44,6 +44,8 @@
 		6BD6CC4520C7AD5200498859 /* AuthenticatedUserStateAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC4420C7AD5200498859 /* AuthenticatedUserStateAction.swift */; };
 		6BD6CC4720C7ADC200498859 /* AuthenticatedUserReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC4620C7ADC200498859 /* AuthenticatedUserReducer.swift */; };
 		6BEA533020C8E0B40075A290 /* UserFolloweesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEA532F20C8E0B40075A290 /* UserFolloweesRequest.swift */; };
+		6BEA533220C8F8FF0075A290 /* UserFollowersRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEA533120C8F8FF0075A290 /* UserFollowersRequest.swift */; };
+		6BEA533520C8FACA0075A290 /* EnumCollection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEA533420C8FACA0075A290 /* EnumCollection+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,8 @@
 		6BD6CC4420C7AD5200498859 /* AuthenticatedUserStateAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedUserStateAction.swift; sourceTree = "<group>"; };
 		6BD6CC4620C7ADC200498859 /* AuthenticatedUserReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedUserReducer.swift; sourceTree = "<group>"; };
 		6BEA532F20C8E0B40075A290 /* UserFolloweesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFolloweesRequest.swift; sourceTree = "<group>"; };
+		6BEA533120C8F8FF0075A290 /* UserFollowersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowersRequest.swift; sourceTree = "<group>"; };
+		6BEA533420C8FACA0075A290 /* EnumCollection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnumCollection+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,7 @@
 				6BB53B01207C8AD1006BC385 /* Model */,
 				6BB53AF5207C8359006BC385 /* View */,
 				6BB53AC5207C736F006BC385 /* AppDelegate.swift */,
+				6BEA533320C8FABD0075A290 /* Utils */,
 				6BB53ACE207C7371006BC385 /* Assets.xcassets */,
 				6BB53AD0207C7371006BC385 /* LaunchScreen.storyboard */,
 				6BB53AD3207C7371006BC385 /* Info.plist */,
@@ -289,8 +294,17 @@
 				6BD6CC3E20C79B9400498859 /* AuthenticatedUserRequest.swift */,
 				6B5AA4C020C7D28C004DC312 /* UserItemsRequest.swift */,
 				6BEA532F20C8E0B40075A290 /* UserFolloweesRequest.swift */,
+				6BEA533120C8F8FF0075A290 /* UserFollowersRequest.swift */,
 			);
 			path = Endpoint;
+			sourceTree = "<group>";
+		};
+		6BEA533320C8FABD0075A290 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				6BEA533420C8FACA0075A290 /* EnumCollection+Extension.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,6 +462,7 @@
 			files = (
 				6BB53B04207C8B04006BC385 /* Item.swift in Sources */,
 				6B6A60B020C672C100D8E9A0 /* AuthenticationViewController.swift in Sources */,
+				6BEA533520C8FACA0075A290 /* EnumCollection+Extension.swift in Sources */,
 				6BB53B08207C8F33006BC385 /* NewItemsReducer.swift in Sources */,
 				6BB53B0A207C8F9C006BC385 /* AppState.swift in Sources */,
 				6B7AE6AD20C1376B00B2468C /* APIActionCreator.swift in Sources */,
@@ -464,6 +479,7 @@
 				6BD6CC3520C68BF400498859 /* AuthenticationStateAction.swift in Sources */,
 				6BD6CC3320C68B6B00498859 /* AuthenticationState.swift in Sources */,
 				6BB53B00207C8A1E006BC385 /* NewItemsState.swift in Sources */,
+				6BEA533220C8F8FF0075A290 /* UserFollowersRequest.swift in Sources */,
 				6BD6CC2F20C6865500498859 /* AuthoriseResponse.swift in Sources */,
 				6BD6CC3F20C79B9400498859 /* AuthenticatedUserRequest.swift in Sources */,
 				6BB53B11207CABDF006BC385 /* NewItemsRequest.swift in Sources */,

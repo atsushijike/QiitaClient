@@ -12,8 +12,19 @@ import AlamofireImage
 import Hydra
 
 class AuthenticatedUserViewController: UITableViewController {
-    enum ListType: Int {
-        case items = 0, followees = 1
+    enum ListType: Int, EnumCollection {
+        case items = 0, followees = 1, followers = 2
+
+        var description: String {
+            switch self {
+            case .items:
+                return "Items"
+            case .followees:
+                return "Followees"
+            case .followers:
+                return "Followers"
+            }
+        }
     }
     var authenticatedUserState = store.state.authenticatedUser
     private let headerView = UserHeaderView(frame: .zero)
@@ -32,6 +43,10 @@ class AuthenticatedUserViewController: UITableViewController {
         tableView.register(AuthenticatedUserTableViewCell.self, forCellReuseIdentifier: "default")
         refreshControl = UIRefreshControl()
         refreshControl?.addTarget(self, action: #selector(refreshBarButtonAction), for: .valueChanged)
+        ListType.allValues.forEach { (listType) in
+            headerView.segmentedControl.insertSegment(withTitle: listType.description, at: listType.rawValue, animated: false)
+        }
+        headerView.segmentedControl.selectedSegmentIndex = 0
         headerView.segmentedControl.addTarget(self, action: #selector(headerViewSegmentedControlAction), for: .valueChanged)
         store.subscribe(self)
         refreshData()
@@ -120,7 +135,27 @@ class AuthenticatedUserViewController: UITableViewController {
             })
         }
 
-        fetchUser().then(fetchItems).then(fetchFollowees).then { [weak self] (userId) in
+        func fetchFollowers(userId: String) -> Promise<String> {
+            return Promise<String>(in: .background, { (resolve, reject, operation) in
+                let actionCreator = APIActionCreator.send(request: UserFollowersRequest(userId: userId, page: self.authenticatedUserState.pageNumber, perPage: 20)) { [weak self] (data) in
+                    let pageNumber = self?.authenticatedUserState.pageNumber ?? 1
+                    let pageNumberAction = AuthenticatedUserState.AuthenticatedUserPageNumberAction(pageNumber: pageNumber)
+                    store.dispatch(pageNumberAction)
+                    
+                    if data != nil {
+                        let jsonDecoder = JSONDecoder()
+                        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                        let followers = try! jsonDecoder.decode(Array<User>.self, from: data!)
+                        let followersAction = AuthenticatedUserState.AuthenticatedUserFollowersAction(followers: followers)
+                        store.dispatch(followersAction)
+                        resolve(userId)
+                    }
+                }
+                store.dispatch(actionCreator)
+            })
+        }
+
+        fetchUser().then(fetchItems).then(fetchFollowees).then(fetchFollowers).then { [weak self] (userId) in
             self?.updateHeaderView()
             self?.tableView.reloadData()
             self?.refreshControl?.endRefreshing()
@@ -147,6 +182,8 @@ class AuthenticatedUserViewController: UITableViewController {
             return authenticatedUserState.items?.count ?? 0
         case .followees:
             return authenticatedUserState.followees?.count ?? 0
+        case .followers:
+            return authenticatedUserState.followers?.count ?? 0
         }
     }
     
@@ -156,7 +193,9 @@ class AuthenticatedUserViewController: UITableViewController {
         case .items:
             cell.textLabel?.text = authenticatedUserState.items?[indexPath.row].title
         case .followees:
-            cell.textLabel?.text = authenticatedUserState.followees?[indexPath.row].name
+            cell.textLabel?.text = authenticatedUserState.followees?[indexPath.row].id
+        case .followers:
+            cell.textLabel?.text = authenticatedUserState.followers?[indexPath.row].id
         }
         return cell
     }
@@ -173,7 +212,7 @@ private class UserHeaderView: UIView {
     let nameLabel = UILabel()
     let idLabel = UILabel()
     let organizationLabel = UILabel()
-    let segmentedControl = UISegmentedControl(items: ["Items", "Followees"])
+    let segmentedControl = UISegmentedControl(items: nil)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -188,7 +227,6 @@ private class UserHeaderView: UIView {
         organizationLabel.font = UIFont.systemFont(ofSize: 14)
         organizationLabel.textAlignment = .center
         addSubview(organizationLabel)
-        segmentedControl.selectedSegmentIndex = 0
         addSubview(segmentedControl)
         
         imageView.snp.makeConstraints { (make) in
