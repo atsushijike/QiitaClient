@@ -23,8 +23,10 @@ class AuthenticatedUserViewController: UITableViewController {
         super.viewDidLoad()
         navigationController?.tabBarItem.title = title
         navigationController?.tabBarItem.image = #imageLiteral(resourceName: "first")
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshBarButtonAction))
         tableView.register(AuthenticatedUserTableViewCell.self, forCellReuseIdentifier: "default")
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refreshBarButtonAction), for: .valueChanged)
+        headerView.segmentedControl.addTarget(self, action: #selector(headerViewSegmentedControlAction), for: .touchDown)
         store.subscribe(self)
         refreshData()
     }
@@ -33,13 +35,17 @@ class AuthenticatedUserViewController: UITableViewController {
         super.viewDidLayoutSubviews()
         
         if tableView.tableHeaderView == nil {
-            headerView.frame.size = CGSize(width: view.bounds.width, height: 300)
+            headerView.frame.size = CGSize(width: view.bounds.width, height: 444)
             tableView.tableHeaderView = headerView
         }
     }
 
     @objc private func refreshBarButtonAction() {
         refreshData()
+    }
+
+    @objc private func headerViewSegmentedControlAction(sender: Any) {
+        
     }
 
     func refreshData() {
@@ -51,35 +57,53 @@ class AuthenticatedUserViewController: UITableViewController {
             return
         }
 
-        Promise<String> { resolve, reject, status in
-            let actionCreator = APIActionCreator.send(request: AuthenticatedUserRequest()) { (data) in
-                if data != nil {
-                    let jsonDecoder = JSONDecoder()
-                    jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let user = try! jsonDecoder.decode(User.self, from: data!)
-                    let resultAction = AuthenticatedUserState.AuthenticatedUserUserAction(user: user)
-                    store.dispatch(resultAction)
-                    resolve(user.id)
+        func fetchUser() -> Promise<String> {
+            return Promise<String>(in: .background, { (resolve, reject, operation) in
+                let actionCreator = APIActionCreator.send(request: AuthenticatedUserRequest()) { (data) in
+                    if data != nil {
+                        let jsonDecoder = JSONDecoder()
+                        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                        let user = try! jsonDecoder.decode(User.self, from: data!)
+                        let resultAction = AuthenticatedUserState.AuthenticatedUserUserAction(user: user)
+                        store.dispatch(resultAction)
+                        resolve(user.id)
+                    }
                 }
-            }
-            store.dispatch(actionCreator)
-        }.then { userId in
-            let actionCreator1 = APIActionCreator.send(request: UserItemsRequest(userId: userId, page: self.authenticatedUserState.pageNumber, perPage: 20)) { (data) in
-                if data != nil {
-                    let jsonDecoder = JSONDecoder()
-                    jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-                    let items = try! jsonDecoder.decode(Array<Item>.self, from: data!)
-                    let itemsAction = AuthenticatedUserState.AuthenticatedUserItemsAction(items: items)
-                    store.dispatch(itemsAction)
+                store.dispatch(actionCreator)
+            })
+        }
+        
+        func fetchItems(userId: String) -> Promise<Any> {
+            return Promise<Any>(in: .background, { (resolve, reject, operation) in
+                let actionCreator = APIActionCreator.send(request: UserItemsRequest(userId: userId, page: self.authenticatedUserState.pageNumber, perPage: 20)) { [weak self] (data) in
+                    let pageNumber = self?.authenticatedUserState.pageNumber ?? 1
+                    let pageNumberAction = AuthenticatedUserState.AuthenticatedUserPageNumberAction(pageNumber: pageNumber)
+                    store.dispatch(pageNumberAction)
+                    
+                    if data != nil {
+                        let jsonDecoder = JSONDecoder()
+                        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                        let items = try! jsonDecoder.decode(Array<Item>.self, from: data!)
+                        let itemsAction = AuthenticatedUserState.AuthenticatedUserItemsAction(items: items)
+                        store.dispatch(itemsAction)
+                        resolve(items)
+                    }
                 }
-            }
-            store.dispatch(actionCreator1)
+                store.dispatch(actionCreator)
+            })
+        }
+
+        fetchUser().then(fetchItems).then { [weak self] (items) in
+            self?.updateHeaderView()
+            self?.tableView.reloadData()
+            self?.refreshControl?.endRefreshing()
         }
     }
 
     func updateHeaderView() {
         guard let user = authenticatedUserState.user else { return }
-        
+
+        title = user.name
         headerView.imageView.setImage(with: user.profileImageUrl)
         headerView.nameLabel.text = user.name
         headerView.idLabel.text = user.id
@@ -106,8 +130,6 @@ class AuthenticatedUserViewController: UITableViewController {
 extension AuthenticatedUserViewController: StoreSubscriber {
     func newState(state: AppState) {
         authenticatedUserState = state.authenticatedUser
-        updateHeaderView()
-        tableView.reloadData()
     }
 }
 
@@ -116,6 +138,7 @@ private class UserHeaderView: UIView {
     let nameLabel = UILabel()
     let idLabel = UILabel()
     let organizationLabel = UILabel()
+    let segmentedControl = UISegmentedControl(items: ["Items", "Followees"])
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -130,10 +153,13 @@ private class UserHeaderView: UIView {
         organizationLabel.font = UIFont.systemFont(ofSize: 14)
         organizationLabel.textAlignment = .center
         addSubview(organizationLabel)
+        segmentedControl.selectedSegmentIndex = 0
+        addSubview(segmentedControl)
         
         imageView.snp.makeConstraints { (make) in
-            make.width.height.equalTo(400)
-            make.center.equalToSuperview()
+            make.width.height.equalTo(300)
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(12)
         }
         nameLabel.snp.makeConstraints { (make) in
             make.width.equalToSuperview()
@@ -146,6 +172,11 @@ private class UserHeaderView: UIView {
         organizationLabel.snp.makeConstraints { (make) in
             make.width.equalToSuperview()
             make.top.equalTo(idLabel.snp.bottom).offset(8)
+        }
+        segmentedControl.snp.makeConstraints { (make) in
+            make.width.equalToSuperview()
+            make.height.equalTo(40)
+            make.top.equalTo(organizationLabel.snp.bottom).offset(12)
         }
     }
     

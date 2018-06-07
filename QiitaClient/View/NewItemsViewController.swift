@@ -25,9 +25,10 @@ class NewItemsViewController: UITableViewController {
         title = newItemsState.title
         navigationController?.tabBarItem.title = title
         navigationController?.tabBarItem.image = #imageLiteral(resourceName: "first")
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshBarButtonAction))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(loginBarButtonAction))
         tableView.register(NewItemsTableViewCell.self, forCellReuseIdentifier: "default")
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refreshBarButtonAction), for: .valueChanged)
         store.subscribe(self)
         refreshData()
     }
@@ -46,10 +47,10 @@ class NewItemsViewController: UITableViewController {
         let refreshStartAction = NewItemsState.NewItemsRefreshAction(isRefresh: true)
         store.dispatch(refreshStartAction)
 
-        let actionCreator = APIActionCreator.send(request: NewItemsRequest(page: newItemsState.pageNumber, perPage: 20)) { (data) in
+        let actionCreator = APIActionCreator.send(request: NewItemsRequest(page: newItemsState.pageNumber, perPage: 20)) { [weak self] (data) in
             let refreshEndAction = NewItemsState.NewItemsRefreshAction(isRefresh: false)
             store.dispatch(refreshEndAction)
-            let pageNumber = self.newItemsState.pageNumber
+            let pageNumber = self?.newItemsState.pageNumber ?? 1
             let pageNumberAction = NewItemsState.NewItemsPageNumberAction(pageNumber: pageNumber)
             store.dispatch(pageNumberAction)
 
@@ -59,6 +60,7 @@ class NewItemsViewController: UITableViewController {
                 let items = try! jsonDecoder.decode(Array<Item>.self, from: data!)
                 let resultAction = NewItemsState.NewItemsItemsAction(items: items)
                 store.dispatch(resultAction)
+                self?.refreshControl?.endRefreshing()
             }
         }
         store.dispatch(actionCreator)
