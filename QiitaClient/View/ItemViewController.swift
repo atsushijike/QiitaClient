@@ -9,10 +9,11 @@
 import UIKit
 import WebKit
 import SnapKit
+import Down
 
-class ItemViewController: UIViewController {
+class ItemViewController: UIViewController, WKNavigationDelegate {
     let item: Item
-    let webView = WKWebView(frame: .zero, configuration: WKWebViewConfiguration())
+    var downView: DownView?
 
     init(item: Item) {
         self.item = item
@@ -27,14 +28,13 @@ class ItemViewController: UIViewController {
         super.viewDidLoad()
         
         title = item.title
-        view.addSubview(webView)
+        if let downView = try? DownView(frame: self.view.bounds, markdownString: item.body) {
+            self.downView = downView
+            view.addSubview(downView)
 
-        webView.snp.makeConstraints { (make) in
-            make.size.equalToSuperview()
-        }
-
-        if let url = URL(string: item.url) {
-            webView.load(URLRequest(url: url))
+            downView.snp.makeConstraints { (make) in
+                make.size.equalToSuperview()
+            }
         }
     }
 }

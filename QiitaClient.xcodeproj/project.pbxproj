@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B042E1120CA742C00343121 /* Down.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B042E1020CA742C00343121 /* Down.framework */; };
 		6B5AA4B720C7BC6D004DC312 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B5AA4B620C7BC6D004DC312 /* AlamofireImage.framework */; };
 		6B5AA4B920C7C287004DC312 /* AuthenticatedUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5AA4B820C7C287004DC312 /* AuthenticatedUserViewController.swift */; };
 		6B5AA4C120C7D28C004DC312 /* UserItemsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5AA4C020C7D28C004DC312 /* UserItemsRequest.swift */; };
@@ -28,7 +29,6 @@
 		6BB53B11207CABDF006BC385 /* NewItemsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B10207CABDF006BC385 /* NewItemsRequest.swift */; };
 		6BB53B15207CAFDF006BC385 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB53B14207CAFDF006BC385 /* Request.swift */; };
 		6BC71CB420C11699009633B9 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BB53AFC207C8874006BC385 /* ReSwift.framework */; };
-		6BC71CB720C1169A009633B9 /* Unbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC71CB520C1169A009633B9 /* Unbox.framework */; };
 		6BC71CB820C1169A009633B9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC71CB620C1169A009633B9 /* Alamofire.framework */; };
 		6BD6CC2D20C67EEE00498859 /* AuthoriseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC2C20C67EEE00498859 /* AuthoriseRequest.swift */; };
 		6BD6CC2F20C6865500498859 /* AuthoriseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD6CC2E20C6865500498859 /* AuthoriseResponse.swift */; };
@@ -67,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B042E1020CA742C00343121 /* Down.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Down.framework; path = Carthage/Build/iOS/Down.framework; sourceTree = "<group>"; };
 		6B5AA4B620C7BC6D004DC312 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		6B5AA4B820C7C287004DC312 /* AuthenticatedUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatedUserViewController.swift; sourceTree = "<group>"; };
 		6B5AA4C020C7D28C004DC312 /* UserItemsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItemsRequest.swift; sourceTree = "<group>"; };
@@ -113,6 +114,9 @@
 		6BEA533120C8F8FF0075A290 /* UserFollowersRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFollowersRequest.swift; sourceTree = "<group>"; };
 		6BEA533420C8FACA0075A290 /* EnumCollection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnumCollection+Extension.swift"; sourceTree = "<group>"; };
 		6BEA533620C8FD970075A290 /* ItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		6BEA533B20C92D670075A290 /* MMMarkdown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MMMarkdown.framework; path = Carthage/Build/iOS/MMMarkdown.framework; sourceTree = "<group>"; };
+		6BEA533D20C932E40075A290 /* SwiftyMarkdown.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyMarkdown.framework; path = Carthage/Build/iOS/SwiftyMarkdown.framework; sourceTree = "<group>"; };
+		6BEA533F20C935C30075A290 /* TSMarkdownParser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TSMarkdownParser.framework; path = Carthage/Build/iOS/TSMarkdownParser.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,10 +124,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B042E1120CA742C00343121 /* Down.framework in Frameworks */,
 				6B5AA4C320C7DED0004DC312 /* Hydra.framework in Frameworks */,
 				6B5AA4B720C7BC6D004DC312 /* AlamofireImage.framework in Frameworks */,
 				6B6A60B220C674DB00D8E9A0 /* SnapKit.framework in Frameworks */,
-				6BC71CB720C1169A009633B9 /* Unbox.framework in Frameworks */,
 				6BC71CB820C1169A009633B9 /* Alamofire.framework in Frameworks */,
 				6BC71CB420C11699009633B9 /* ReSwift.framework in Frameworks */,
 			);
@@ -257,6 +261,10 @@
 		6BB53AFB207C8874006BC385 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6B042E1020CA742C00343121 /* Down.framework */,
+				6BEA533F20C935C30075A290 /* TSMarkdownParser.framework */,
+				6BEA533D20C932E40075A290 /* SwiftyMarkdown.framework */,
+				6BEA533B20C92D670075A290 /* MMMarkdown.framework */,
 				6B5AA4C220C7DECF004DC312 /* Hydra.framework */,
 				6B5AA4B620C7BC6D004DC312 /* AlamofireImage.framework */,
 				6B6A60B120C674DA00D8E9A0 /* SnapKit.framework */,
@@ -320,7 +328,7 @@
 				6BB53ABE207C736F006BC385 /* Sources */,
 				6BB53ABF207C736F006BC385 /* Frameworks */,
 				6BB53AC0207C736F006BC385 /* Resources */,
-				6BB53AFE207C889E006BC385 /* ShellScript */,
+				6BB53AFE207C889E006BC385 /* Run Carthage */,
 			);
 			buildRules = (
 			);
@@ -437,7 +445,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6BB53AFE207C889E006BC385 /* ShellScript */ = {
+		6BB53AFE207C889E006BC385 /* Run Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -445,11 +453,12 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/ReSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Unbox.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Hydra.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Down.framework",
 			);
+			name = "Run Carthage";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

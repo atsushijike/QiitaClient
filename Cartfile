@@ -3,4 +3,5 @@ github "Alamofire/Alamofire"
 github "Alamofire/AlamofireImage"
 github "SnapKit/SnapKit"
 github "malcommac/Hydra"
+github "iwasrobbed/Down"
 

@@ -199,6 +199,22 @@ class AuthenticatedUserViewController: UITableViewController {
         }
         return cell
     }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        switch listType {
+        case .items:
+            if let item = authenticatedUserState.items?[indexPath.row] {
+                let vc = ItemViewController(item: item)
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        case .followees:
+            break
+        case .followers:
+            break
+        }
+    }
 }
 
 extension AuthenticatedUserViewController: StoreSubscriber {
